@@ -2,6 +2,7 @@ import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { BrowseRange } from "./sections/BrowseRange";
 import { Hero } from "./sections/Hero";
+import { OurProducts } from "./sections/OurProducts";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <main>
         <Hero/>
         <BrowseRange/>
+        <OurProducts/>
       </main>
 
       <Footer/>
