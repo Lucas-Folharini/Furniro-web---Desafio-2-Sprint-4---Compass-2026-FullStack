@@ -1,5 +1,6 @@
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import { BrowseRange } from "./sections/BrowseRange";
 import { Hero } from "./sections/Hero";
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
 
       <main>
         <Hero/>
-
+        <BrowseRange/>
       </main>
 
       <Footer/>
