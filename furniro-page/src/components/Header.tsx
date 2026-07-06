@@ -4,14 +4,15 @@ import iconProfile from "../assets/iconProfile.svg";
 
 export function Header() {
   return (
-    
     <header className="sticky top-0 z-50 w-full bg-white transition-all flex justify-center">
-     
       <div className="relative w-full max-w-[1440px] pl-[93px] pr-[100px] h-20 flex items-center justify-between border-2 border-red-500">
         {/* =========================================
             BLOCO 1: LOGO E MARCA 
             ========================================= */}
-        <a href="#" className="flex items-center gap-[5px] focus:outline-none z-10">
+        <a
+          href="#"
+          className="flex items-center gap-[5px] focus:outline-none z-10"
+        >
           <img src={logo} alt="Furniro Logo" className="w-12 h-auto" />
           <span className="font-montserrat font-bold text-[34px] leading-none tracking-tight text-[#000000]">
             Furniro
