@@ -3,6 +3,7 @@ import { Header } from "./components/Header";
 import { BrowseRange } from "./sections/BrowseRange";
 import { Hero } from "./sections/Hero";
 import { OurProducts } from "./sections/OurProducts";
+import { Rooms } from "./sections/Rooms";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Hero/>
         <BrowseRange/>
         <OurProducts/>
+        <Rooms/>
       </main>
 
       <Footer/>

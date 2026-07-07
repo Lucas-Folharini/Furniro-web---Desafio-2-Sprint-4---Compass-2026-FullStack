@@ -20,7 +20,7 @@ export function Header() {
         </a>
 
         {/* =========================================
-            BLOCO 2: NAVEGAÇÃO PRINCIPAL (Centro) 
+            BLOCO 2: NAVEGAÇÃO PRINCIPAL
             =========================================
         */}
         <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-[75px] font-poppins font-medium text-[#000000] text-base">
