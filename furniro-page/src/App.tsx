@@ -1,6 +1,7 @@
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { BrowseRange } from "./sections/BrowseRange";
+import { Forniture } from "./sections/Forniture";
 import { Hero } from "./sections/Hero";
 import { OurProducts } from "./sections/OurProducts";
 import { Rooms } from "./sections/Rooms";
@@ -15,6 +16,7 @@ function App() {
         <BrowseRange/>
         <OurProducts/>
         <Rooms/>
+        <Forniture/>
       </main>
 
       <Footer/>
