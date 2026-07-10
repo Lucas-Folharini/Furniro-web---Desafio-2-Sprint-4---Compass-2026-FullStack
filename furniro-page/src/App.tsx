@@ -10,18 +10,25 @@ import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <div className="min-h-screen flex flex-col font-poppins">
-      
-      <Toaster position="top-right" reverseOrder={false} />
-      <Header/>
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        containerStyle={{
+          top: 110,
+        }}
+      />
+
+      <Header />
+
       <main>
-        <Hero/>
-        <BrowseRange/>
-        <OurProducts/>
-        <Rooms/>
-        <Forniture/>
+        <Hero />
+        <BrowseRange />
+        <OurProducts />
+        <Rooms />
+        <Forniture />
       </main>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 }

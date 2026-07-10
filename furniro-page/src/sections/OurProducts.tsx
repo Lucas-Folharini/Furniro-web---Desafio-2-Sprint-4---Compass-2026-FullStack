@@ -32,7 +32,7 @@ export function OurProducts() {
       {/* =========================================
           GRID PRINCIPAL
           ========================================= */}
-      <div className="w-full max-w-[1236px] px-5 lg:px-0 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-10">
+      <div className="w-full max-w-[1183px] px-5 lg:px-0 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-10">
         {products.map((product) => (
           /* =========================================
              CARD INDIVIDUAL
@@ -64,7 +64,7 @@ export function OurProducts() {
               <h3 className="font-poppins font-semibold text-[24px] text-[#3A3A3A]">
                 {product.name}
               </h3>
-              <p className="font-poppins font-medium text-[#898989] text-[16px]">
+              <p className="font-poppins font-medium text-[#898989] text-[16px] truncate">
                 {product.description}
               </p>
               <div className="flex items-center gap-4 mt-1">

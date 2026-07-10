@@ -35,8 +35,14 @@ export function Footer() {
 
   return (
     <footer className="w-full bg-white flex justify-center pt-16 pb-8 border-t border-gray-200">
-      <div className="w-full max-w-[1440px] pl-[54px] pr-[100px] flex flex-col">
-        <div className="flex flex-col md:flex-row justify-between gap-10 mb-12">
+      
+      {/* =========================================
+          CONTAINER PRINCIPAL
+          ========================================= */}
+      <div className="w-full max-w-[1183px] px-5 lg:px-0 flex flex-col">
+        
+        <div className="flex flex-col lg:flex-row justify-between gap-10 mb-12 flex-wrap">
+          
           <div className="flex flex-col gap-10 max-w-[285px]">
             <h2 className="font-poppins font-bold text-2xl text-black">
               Funiro.

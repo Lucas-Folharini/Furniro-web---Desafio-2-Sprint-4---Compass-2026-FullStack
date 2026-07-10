@@ -3,33 +3,33 @@ import heroBg from "../assets/hero-bg.jpg";
 export function Hero() {
   return (
    
-    <section className="w-full flex justify-center bg-white">
+    <section 
+      className="w-full min-h-[716px] bg-cover bg-center bg-no-repeat flex justify-center"
+      style={{ backgroundImage: `url(${heroBg})` }}
+    >
       
-      {/* CONTAINER PRINCIPAL*/}
-      <div 
-        className="relative w-full max-w-[1440px] min-h-[716px] bg-cover bg-center bg-no-repeat flex items-center justify-end pl-[54px] pr-[100px]"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      >
+      {/*CONTAINER DE ALINHAMENTO*/}
+      <div className="relative w-full max-w-[1183px] flex items-center justify-end px-5 lg:px-0">
         
         {/* =========================================
             CARTÃO DE CONTEÚDO
             ========================================= */}
-        <div className="bg-[#FFF3E3] rounded-[10px] pt-[62px] pb-[37px] pr-[43px] pl-[39px] max-w-[643px] w-full">
+        <div className="bg-[#FFF3E3] rounded-[10px] pt-[62px] pb-[37px] pr-[43px] pl-[39px] max-w-[643px] w-full mt-[150px] md:mt-0">
           
           <span className="block font-poppins font-semibold text-[16px] tracking-[3px] text-[#333333] mb-1">
             New Arrival
           </span>
           
-          <h1 className="font-poppins font-bold text-[52px] leading-[65px] text-[#B88E2F] mb-4">
+          <h1 className="font-poppins font-bold text-[40px] md:text-[52px] leading-[1.2] md:leading-[65px] text-[#B88E2F] mb-4">
             Discover Our <br /> New Collection
           </h1>
           
-          <p className="font-poppins font-medium text-[18px] leading-[24px] text-[#333333] mb-[46px]">
+          <p className="font-poppins font-medium text-[16px] md:text-[18px] leading-[24px] text-[#333333] mb-[46px]">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
             elit tellus, luctus nec ullamcorper mattis.
           </p>
           
-          <button className="bg-[#B88E2F] text-white font-bold text-[16px] py-[25px] px-[72px] uppercase transition-colors hover:bg-[#9d7725]">
+          <button className="bg-[#B88E2F] text-white font-bold text-[16px] py-[20px] md:py-[25px] px-[50px] md:px-[72px] uppercase transition-colors hover:bg-[#9d7725]">
             BUY NOW
           </button>
 
