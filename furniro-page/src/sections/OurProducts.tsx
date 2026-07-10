@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import toast from "react-hot-toast";
 
 interface Product {
   id: number;
@@ -41,7 +42,6 @@ export function OurProducts() {
             className="group relative bg-[#F4F5F7] flex flex-col overflow-hidden"
           >
             <div className="relative w-full h-[301px]">
-            
               <img
                 src={product.image}
                 alt={product.name}
@@ -80,7 +80,21 @@ export function OurProducts() {
             </div>
 
             <div className="absolute inset-0 bg-[#3A3A3A]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
-              <button className="bg-white text-[#B88E2F] font-semibold py-3 px-10 hover:bg-[#B88E2F] hover:text-white transition-colors">
+              <button
+                onClick={() =>
+                  toast.success(`${product.name} added to cart!`, {
+                    style: {
+                      background: "#2EC1AC", 
+                      color: "#fff",
+                    },
+                    iconTheme: {
+                      primary: "#fff",
+                      secondary: "#2EC1AC",
+                    },
+                  })
+                }
+                className="bg-white text-[#B88E2F] font-semibold py-3 px-10 hover:bg-[#B88E2F] hover:text-white transition-colors"
+              >
                 Add to cart
               </button>
             </div>

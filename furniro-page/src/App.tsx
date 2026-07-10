@@ -5,12 +5,14 @@ import { Forniture } from "./sections/Forniture";
 import { Hero } from "./sections/Hero";
 import { OurProducts } from "./sections/OurProducts";
 import { Rooms } from "./sections/Rooms";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    <div className="w-full min-h-screen bg-white antialiased selection:bg-[#B88E2F] selection:text-white">
-      <Header />
-
+    <div className="min-h-screen flex flex-col font-poppins">
+      
+      <Toaster position="top-right" reverseOrder={false} />
+      <Header/>
       <main>
         <Hero/>
         <BrowseRange/>
