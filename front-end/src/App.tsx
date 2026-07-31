@@ -1,11 +1,9 @@
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
-import { BrowseRange } from "./pages/Home/sections/BrowseRange";
-import { Forniture } from "./pages/Home/sections/Forniture";
-import { Hero } from "./pages/Home/sections/Hero";
-import { OurProducts } from "./pages/Home/sections/OurProducts";
-import { Rooms } from "./pages/Home/sections/Rooms";
+import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
+import { Home } from "./pages/Home";
 
 function App() {
   return (
@@ -20,13 +18,12 @@ function App() {
 
       <Header />
 
-      <main>
-        <Hero />
-        <BrowseRange />
-        <OurProducts />
-        <Rooms />
-        <Forniture />
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        
+        {/* Futuras rotas aqui/}
+        {/* <Route path="/shop" element={<Shop />} /> */}
+      </Routes>
 
       <Footer />
     </div>
