@@ -1,59 +1,161 @@
-# Furniro - E-Commerce Landing Page
+# Furniro E-Commerce - Desafio 2
 
-<p align="left">
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/JSON_Server-323330?style=for-the-badge&logo=json&logoColor=white" alt="JSON Server" />
-  <img src="https://img.shields.io/badge/Splide.js-000000?style=for-the-badge&logo=javascript&logoColor=white" alt="Splide" />
-</p>
+Repositório destinado ao **Desafio 2**, com o objetivo de recriar as páginas do e-commerce **Furniro**, consumindo uma API própria e gerenciando o estado global do carrinho.
 
-A modern, responsive, and interactive e-commerce interface developed as a technical challenge solution. The project simulates the storefront of a high-end furniture store, featuring data consumption via a simulated REST API, an interactive carousel, form validation, and a layout architecture built without external libraries.
+---
 
-## Features
+# Alinhamentos importantes
 
-- **Dynamic Storefront:** Rendering of products fetched from a simulated local API.
-- **Visual Feedback:** Friendly floating notification system when adding products to the cart.
-- **Newsletter Validation:** Email format verification using Regex, with custom success or error feedback.
-- **Interactive Carousel:** Elegant display of inspiring environments using smooth sliders.
-- **Architectural Mosaic:** "Share your setup" image gallery built 100% with native CSS/Tailwind Flexbox.
-- **Responsive Design:** Interface adaptable to mobile devices, tablets, and desktops.
 
-## Technologies Used
+## Kanban e Trello
 
-This project was built with the following technologies and ecosystems:
+- Nunca puxe uma tarefa para **Em Andamento** se você já tem uma em andamento.
+- Termine (ou devolva) a tarefa antes de puxar a próxima.
+- Ao finalizar uma tarefa:
+  - Mova para **Code Review**.
+  - Avise no grupo para alguém revisar e aprovar o Pull Request.
 
-- **[React 19](https://react.dev/):** Main library for building the component-based interface.
-- **[TypeScript](https://www.typescriptlang.org/):** JavaScript superset that adds static typing, ensuring safer and more scalable code.
-- **[Vite](https://vitejs.dev/):** High-performance build tool for the modern ecosystem.
-- **[Tailwind CSS](https://tailwindcss.com/):** CSS utility framework for agile and responsive styling directly in JSX.
-- **[JSON Server](https://github.com/typicode/json-server):** Quick creation of a complete fake REST API (mock) to provide product data.
-- **[React Hot Toast](https://react-hot-toast.com/):** Lightweight library for notifications (toasts) in the cart and email flow.
-- **[Splide.js (@splidejs/react-splide)](https://splidejs.com/):** Lightweight and accessible engine used exclusively for the slider in the "Rooms Inspiration" section.
+##  Git e Versionamento
 
-## How to Run the Project
+-  **NUNCA** faça commit direto na branch `developer` ou `main`.
+- Sempre crie branches no formato:
 
-**Prerequisites:** You need to have [Node.js](https://nodejs.org/) installed on your machine.
+```text
+feature/nome-da-feature
+```
 
-**1. Clone the repository**
+Exemplo:
+
+```text
+feature/header-responsivo
+```
+
+##  Regras de Código
+
+###  Proibido
+
+- Utilizar `alert()` nativo.
+- Utilizar `required` diretamente no HTML.
+
+As validações e feedbacks visuais devem ser implementados manualmente (por exemplo, utilizando **react-hot-toast**).
+
+### Obrigatório
+- Código e commits totalmente em inglês
+- Desenvolver uma interface totalmente responsiva.
+- Sempre testar no modo mobile do navegador antes de abrir um Pull Request.
+
+### Organização das imagens
+
+- **Front-end (`src/assets`)**
+  - Logo
+  - Ícones
+  - Backgrounds
+  - Demais imagens estáticas
+
+- **Back-end (`public/images`)**
+  - Fotos dinâmicas dos produtos
+
+---
+
+#  Padrão de Conventional Commits
+
+
+Todo commit deve iniciar com um prefixo indicando o tipo da alteração.
+
+## Formato
+
+```text
+tipo: descrição breve em letras minúsculas
+```
+
+## Tipos de Commit
+
+| Tipo | Quando utilizar | Exemplo |
+|------|-----------------|----------|
+| `feat` | Nova funcionalidade, página ou componente | `feat: cria componente de card de produto` |
+| `fix` | Correção de bug | `fix: corrige redirecionamento do botao de checkout` |
+| `docs` | Alterações na documentação | `docs: atualiza instrucoes de como rodar o projeto` |
+| `style` | Ajustes de formatação (sem alterar lógica) | `style: aplica prettier nos arquivos da pasta pages` |
+| `refactor` | Reestruturação do código sem alterar comportamento | `refactor: move sections da raiz para as pastas de pages` |
+| `chore` | Dependências, configurações e setup | `chore: instala biblioteca zustand e tailwind` |
+| `test` | Criação ou alteração de testes | `test: adiciona teste unitario para o header` |
+
+
+---
+
+# Tecnologias Utilizadas
+
+## Front-end
+
+- React
+- Vite
+- TypeScript
+- Tailwind CSS
+- Zustand (Gerenciamento do Carrinho)
+- React Router DOM
+- Splide (Carrossel da Home)
+
+## Back-end
+
+- Node.js
+- Express
+- TypeORM
+- SQLite (Banco de dados local)
+
+---
+
+# Como rodar o projeto localmente
+
+Como o projeto é um **Monorepo**, será necessário executar o Front-end e o Back-end em terminais separados.
+
+---
+
+##  Clonando o repositório
+
 ```bash
-git clone https://github.com/Lucas-Folharini/Furniro-homepage---Desafio-1-Sprint-2.git
-cd Furniro-homepage---Desafio-1-Sprint-2
+git clone https://github.com/SEU_USUARIO/furniro-web.git
+
+cd furniro-web
 ```
 
-**2. Install dependencies**
-```Bash
+---
+
+##  Rodando o Back-end
+
+Abra um terminal e execute:
+
+```bash
+cd backend
+
 npm install
-```
-**3. Start the Data Server**
-In one terminal, start json-server to provide the product data. The server will run on port 3000.
-```Bash
-npm run server
-```
-**4. Start the Frontend**
-Open a second terminal tab/window and start the Vite development environment:
-```Bash
+
 npm run dev
 ```
-Open the local address shown in the terminal in your browser to see the project running.
+
+O servidor estará disponível em:
+
+```text
+http://localhost:3000
+```
+
+> **Nota:** O banco de dados SQLite será criado automaticamente na primeira execução.
+
+---
+
+## Rodando o Front-end
+
+Abra um segundo terminal e execute:
+
+```bash
+cd frontend
+
+npm install
+
+npm run dev
+```
+
+Após iniciar o Vite, acesse a URL exibida no terminal (geralmente):
+
+```text
+http://localhost:5173
+```
