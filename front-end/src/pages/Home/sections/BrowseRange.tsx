@@ -1,6 +1,7 @@
-import diningImg from "../assets/dining-range.png";
-import livingImg from "../assets/living-range.png";
-import bedroomImg from "../assets/bedroom-range.png";
+import diningImg from "../../../assets/dining-range.png";
+import livingImg from "../../../assets/living-range.png";
+import bedroomImg from "../../../assets/bedroom-range.png";
+import { Link } from "react-router-dom";
 
 export function BrowseRange() {
   return (
@@ -25,11 +26,13 @@ export function BrowseRange() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full max-w-[1183px] px-5 lg:px-0">
           {/* CARTÃO 1: Dining */}
           <div className="flex flex-col items-center gap-[30px]">
-            <img
-              src={diningImg}
-              alt="Dining Room Setup"
-              className="w-full rounded-[10px] object-cover transition-transform hover:scale-105 cursor-pointer"
-            />
+            <Link to="/shop/dining" className="w-full">
+              <img
+                src={diningImg}
+                alt="Dining Room Setup"
+                className="w-full rounded-[10px] object-cover transition-transform hover:scale-105 cursor-pointer"
+              />
+            </Link>
             <h3 className="font-poppins font-semibold text-[24px] text-[#333333]">
               Dining
             </h3>
@@ -37,11 +40,14 @@ export function BrowseRange() {
 
           {/* CARTÃO 2: Living */}
           <div className="flex flex-col items-center gap-[30px]">
-            <img
-              src={livingImg}
-              alt="Living Room Setup"
-              className="w-full rounded-[10px] object-cover transition-transform hover:scale-105 cursor-pointer"
-            />
+            <Link to="/shop/living" className="w-full">
+              <img
+                src={livingImg}
+                alt="Living Room Setup"
+                className="w-full rounded-[10px] object-cover transition-transform hover:scale-105 cursor-pointer"
+              />
+            </Link>
+
             <h3 className="font-poppins font-semibold text-[24px] text-[#333333]">
               Living
             </h3>
@@ -49,11 +55,13 @@ export function BrowseRange() {
 
           {/* CARTÃO 3: Bedroom */}
           <div className="flex flex-col items-center gap-[30px]">
-            <img
-              src={bedroomImg}
-              alt="Bedroom Setup"
-              className="w-full rounded-[10px] object-cover transition-transform hover:scale-105 cursor-pointer"
-            />
+            <Link to="/shop/bedroom" className="w-full">
+              <img
+                src={bedroomImg}
+                alt="Bedroom Setup"
+                className="w-full rounded-[10px] object-cover transition-transform hover:scale-105 cursor-pointer"
+              />
+            </Link>
             <h3 className="font-poppins font-semibold text-[24px] text-[#333333]">
               Bedroom
             </h3>
