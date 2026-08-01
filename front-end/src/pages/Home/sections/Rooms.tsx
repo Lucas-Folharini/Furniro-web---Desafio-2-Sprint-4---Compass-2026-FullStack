@@ -1,11 +1,11 @@
-import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { Splide, SplideSlide } from "@splidejs/react-splide";
 
 // @ts-expect-error - O Splide não exporta os tipos de CSS corretamente
-import '@splidejs/react-splide/css';
+import "@splidejs/react-splide/css";
 
-import room1 from "../assets/room1.jpg";
-import room2 from "../assets/room2.jpg";
-import room3 from "../assets/room3.jpg";
+import room1 from "@assets/room1.jpg";
+import room2 from "@assets/room2.jpg";
+import room3 from "@assets/room3.jpg";
 
 const roomsData = [
   { id: 1, title: "Inner Peace", category: "01 —— Bed Room", image: room1 },
@@ -16,7 +16,6 @@ const roomsData = [
 export function Rooms() {
   return (
     <section className="w-full bg-[#FCF8F3] py-11 overflow-hidden relative flex justify-center">
-      
       {/* css puro para forçar a cor das bolinhas por cima do carrossel,
           ja q n tem tag para usar tailwind*/}
       <style>
@@ -42,7 +41,6 @@ export function Rooms() {
           CONTAINER PRINCIPAL
           =========================================*/}
       <div className="w-full max-w-[1183px] px-5 lg:px-0 flex flex-col lg:flex-row items-center gap-10">
-        
         {/* =========================================
             LADO ESQUERDO
             ========================================= */}
@@ -78,7 +76,7 @@ export function Rooms() {
                 768: { perPage: 1, gap: "16px" },
               },
             }}
-            className="pb-12" 
+            className="pb-12"
           >
             {roomsData.map((room) => (
               <SplideSlide key={room.id}>

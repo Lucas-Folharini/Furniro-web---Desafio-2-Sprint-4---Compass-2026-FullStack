@@ -1,10 +1,10 @@
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
-import { BrowseRange } from "./pages/Home/sections/BrowseRange";
-import { Forniture } from "./pages/Home/sections/Forniture";
-import { Hero } from "./pages/Home/sections/Hero";
-import { OurProducts } from "./pages/Home/sections/OurProducts";
-import { Rooms } from "./pages/Home/sections/Rooms";
+import { Footer } from "@components/Footer";
+import { Header } from "@components/Header";
+import { BrowseRange } from "@pages/Home/sections/BrowseRange";
+import { Forniture } from "@pages/Home/sections/Forniture";
+import { Hero } from "@pages/Home/sections/Hero";
+import { OurProducts } from "@pages/Home/sections/OurProducts";
+import { Rooms } from "@pages/Home/sections/Rooms";
 import { Toaster } from "react-hot-toast";
 
 function App() {
