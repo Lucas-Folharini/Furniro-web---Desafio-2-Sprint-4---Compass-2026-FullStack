@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
 export function Footer() {
   const [email, setEmail] = useState("");
 
-  const handleSubscribe = (e: React.SubmitEvent<HTMLFormElement>) => {
-    e.preventDefault(); // n recarrega a pagina
+  const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // não recarrega a página
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -88,21 +89,24 @@ export function Footer() {
             </div>
           </div>
 
+          {/* =========================================
+              SEÇÃO DE LINKS COM REACT ROUTER
+              ========================================= */}
           <div className="flex flex-col gap-8">
             <h3 className="font-poppins font-medium text-gray-400">Links</h3>
             <nav className="flex flex-col gap-6 font-poppins font-medium text-black">
-              <a href="#" className="hover:text-[#B88E2F] transition-colors">
+              <Link to="/" className="hover:text-[#B88E2F] transition-colors">
                 Home
-              </a>
-              <a href="#" className="hover:text-[#B88E2F] transition-colors">
+              </Link>
+              <Link to="/shop" className="hover:text-[#B88E2F] transition-colors">
                 Shop
-              </a>
-              <a href="#" className="hover:text-[#B88E2F] transition-colors">
+              </Link>
+              <Link to="/about" className="hover:text-[#B88E2F] transition-colors">
                 About
-              </a>
-              <a href="#" className="hover:text-[#B88E2F] transition-colors">
+              </Link>
+              <Link to="/contact" className="hover:text-[#B88E2F] transition-colors">
                 Contact
-              </a>
+              </Link>
             </nav>
           </div>
 
