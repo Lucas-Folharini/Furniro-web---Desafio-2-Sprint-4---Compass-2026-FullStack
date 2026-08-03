@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import heroBg from "../../../assets/hero-bg.jpg"; 
 
 export function Hero() {
@@ -29,9 +31,12 @@ export function Hero() {
             elit tellus, luctus nec ullamcorper mattis.
           </p>
           
-          <button className="bg-[#B88E2F] text-white font-bold text-[16px] py-[20px] md:py-[25px] px-[50px] md:px-[72px] uppercase transition-colors hover:bg-[#9d7725]">
+          <Link
+            to="/shop"
+            className="inline-flex items-center justify-center bg-[#B88E2F] text-white font-bold text-[16px] py-[20px] md:py-[25px] px-[50px] md:px-[72px] uppercase transition-colors hover:bg-[#9d7725]"
+          >
             BUY NOW
-          </button>
+          </Link>
 
         </div>
       </div>

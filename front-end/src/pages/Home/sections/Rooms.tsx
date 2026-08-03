@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 // @ts-expect-error - O Splide não exporta os tipos de CSS corretamente
@@ -54,9 +55,12 @@ export function Rooms() {
             Our designer already made a lot of beautiful prototipe of rooms that
             inspire you
           </p>
-          <button className="bg-[#B88E2F] text-white font-semibold text-[16px] py-3 px-9 hover:bg-[#9d7725] transition-colors">
+          <Link
+            to="/shop"
+            className="bg-[#B88E2F] text-white font-semibold text-[16px] py-3 px-9 hover:bg-[#9d7725] transition-colors"
+          >
             Explore More
-          </button>
+          </Link>
         </div>
 
         {/* =========================================

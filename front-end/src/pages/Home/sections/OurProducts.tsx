@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
 interface Product {
@@ -102,9 +103,12 @@ export function OurProducts() {
         ))}
       </div>
 
-      <button className="font-poppins font-semibold text-[16px] text-[#B88E2F] border border-[#B88E2F] bg-white py-3 px-16 hover:bg-[#B88E2F] hover:text-white transition-colors">
+      <Link
+        to="/shop"
+        className="font-poppins font-semibold text-[16px] text-[#B88E2F] border border-[#B88E2F] bg-white py-3 px-16 hover:bg-[#B88E2F] hover:text-white transition-colors"
+      >
         Show More
-      </button>
+      </Link>
     </section>
   );
 }
