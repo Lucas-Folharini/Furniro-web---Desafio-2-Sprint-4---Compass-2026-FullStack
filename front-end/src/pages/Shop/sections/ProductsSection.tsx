@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
 
 import { FilterBar } from "./FilterBar";
@@ -99,11 +99,10 @@ const getSortValue = (sortBy: string) => {
 };
 
 export function ProductsSection({ category }: ProductsSectionProps) {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(16);
   const [sortBy, setSortBy] = useState("Default");
-  const [totalItems, setTotalItems] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   const selectedCategory = category?.toLowerCase() || "";
@@ -115,37 +114,14 @@ export function ProductsSection({ category }: ProductsSectionProps) {
       try {
         setIsLoading(true);
 
-        const url = new URL(API_URL);
-        url.searchParams.set("_page", String(currentPage));
-        url.searchParams.set("_limit", String(itemsPerPage));
-
-        if (selectedCategory) {
-          url.searchParams.set("category", selectedCategory);
-        }
-
-        const response = await fetch(url.toString(), {
+        const response = await fetch(API_URL, {
           signal: controller.signal,
         });
 
-        const data = (await response.json()) as Product[];
-        const totalCount = Number(response.headers.get("x-total-count") || data.length);
+        const payload = (await response.json()) as Product[] | { data?: Product[] };
+        const data = Array.isArray(payload) ? payload : payload.data ?? [];
 
-        const sortedProducts = [...data].sort((a, b) => {
-          const sortValue = getSortValue(sortBy);
-
-          if (sortValue === "low-high") {
-            return normalizePrice(a.price) - normalizePrice(b.price);
-          }
-
-          if (sortValue === "high-low") {
-            return normalizePrice(b.price) - normalizePrice(a.price);
-          }
-
-          return 0;
-        });
-
-        setProducts(sortedProducts);
-        setTotalItems(totalCount);
+        setAllProducts(data);
       } catch (error) {
         if ((error as Error).name !== "AbortError") {
           console.error("Erro ao buscar produtos da Shop:", error);
@@ -158,11 +134,36 @@ export function ProductsSection({ category }: ProductsSectionProps) {
     fetchProducts();
 
     return () => controller.abort();
-  }, [currentPage, itemsPerPage, selectedCategory, sortBy]);
+  }, []);
 
+  const filteredProducts = useMemo(() => {
+    const categoryProducts = selectedCategory
+      ? allProducts.filter((product) => product.category.toLowerCase() === selectedCategory)
+      : allProducts;
+
+    const sortValue = getSortValue(sortBy);
+
+    return [...categoryProducts].sort((a, b) => {
+      if (sortValue === "low-high") {
+        return normalizePrice(a.price) - normalizePrice(b.price);
+      }
+
+      if (sortValue === "high-low") {
+        return normalizePrice(b.price) - normalizePrice(a.price);
+      }
+
+      return 0;
+    });
+  }, [allProducts, selectedCategory, sortBy]);
+
+  const totalItems = filteredProducts.length;
   const totalPages = Math.max(Math.ceil(totalItems / itemsPerPage), 1);
   const showingFrom = totalItems === 0 ? 0 : (currentPage - 1) * itemsPerPage + 1;
   const showingTo = Math.min(currentPage * itemsPerPage, totalItems);
+  const pageProducts = filteredProducts.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage,
+  );
 
   const addToCart = (product: Product) => {
     const storageKey = "furniro-cart";
@@ -209,13 +210,13 @@ export function ProductsSection({ category }: ProductsSectionProps) {
             <div className="text-center py-12 font-poppins text-[#898989]">
               Loading products...
             </div>
-          ) : products.length === 0 ? (
+          ) : pageProducts.length === 0 ? (
             <div className="text-center py-12 font-poppins text-[#898989]">
               No products found for this category.
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
-              {products.map((product) => (
+              {pageProducts.map((product) => (
                 <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
               ))}
             </div>
