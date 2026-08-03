@@ -6,9 +6,12 @@
       "description": "Stylish cafe chair",
       "price": "Rp 2.500.000",
       "oldPrice": "Rp 3.500.000",
-      "image": "/prod-1.jpeg",
+      "image": "/images/prod-1.jpeg",
       "badge": "-30%",
-      "badgeColor": "#E97171"
+      "badgeColor": "#E97171",
+      "category": "dining",
+      "sku": "SKU-001",
+      "discount": 30
     },
     {
       "id": 2,
@@ -16,9 +19,12 @@
       "description": "Stylish cafe chair",
       "price": "Rp 2.500.000",
       "oldPrice": null,
-      "image": "/prod-2.jpeg",
+      "image": "/images/prod-2.jpeg",
       "badge": null,
-      "badgeColor": null
+      "badgeColor": null,
+      "category": "dining",
+      "sku": "SKU-002",
+      "discount": 0
     },
     {
       "id": 3,
@@ -26,9 +32,12 @@
       "description": "Luxury big sofa",
       "price": "Rp 7.000.000",
       "oldPrice": "Rp 14.000.000",
-      "image": "/prod-3.jpeg",
+      "image": "/images/prod-3.jpeg",
       "badge": "-50%",
-      "badgeColor": "#E97171"
+      "badgeColor": "#E97171",
+      "category": "living",
+      "sku": "SKU-003",
+      "discount": 50
     },
     {
       "id": 4,
@@ -36,9 +45,12 @@
       "description": "Outdoor bar table and stool",
       "price": "Rp 500.000",
       "oldPrice": null,
-      "image": "/prod-4.jpeg",
+      "image": "/images/prod-4.jpeg",
       "badge": "New",
-      "badgeColor": "#2EC1AC"
+      "badgeColor": "#2EC1AC",
+      "category": "living",
+      "sku": "SKU-004",
+      "discount": 0
     },
     {
       "id": 5,
@@ -46,9 +58,12 @@
       "description": "Night lamp",
       "price": "Rp 1.500.000",
       "oldPrice": null,
-      "image": "/prod-5.jpeg",
+      "image": "/images/prod-5.jpeg",
       "badge": null,
-      "badgeColor": null
+      "badgeColor": null,
+      "category": "bedroom",
+      "sku": "SKU-005",
+      "discount": 0
     },
     {
       "id": 6,
@@ -56,9 +71,12 @@
       "description": "Small mug",
       "price": "Rp 150.000",
       "oldPrice": null,
-      "image": "/prod-6.jpeg",
+      "image": "/images/prod-6.jpeg",
       "badge": "New",
-      "badgeColor": "#2EC1AC"
+      "badgeColor": "#2EC1AC",
+      "category": "bedroom",
+      "sku": "SKU-006",
+      "discount": 0
     },
     {
       "id": 7,
@@ -66,9 +84,12 @@
       "description": "Cute bed set",
       "price": "Rp 7.000.000",
       "oldPrice": "Rp 14.000.000",
-      "image": "/prod-7.jpeg",
+      "image": "/images/prod-7.jpeg",
       "badge": "-50%",
-      "badgeColor": "#E97171"
+      "badgeColor": "#E97171",
+      "category": "bedroom",
+      "sku": "SKU-007",
+      "discount": 50
     },
     {
       "id": 8,
@@ -76,9 +97,12 @@
       "description": "Minimalist flower pot",
       "price": "Rp 500.000",
       "oldPrice": null,
-      "image": "/prod-8.jpeg",
+      "image": "/images/prod-8.jpeg",
       "badge": "New",
-      "badgeColor": "#2EC1AC"
+      "badgeColor": "#2EC1AC",
+      "category": "dining",
+      "sku": "SKU-008",
+      "discount": 0
     }
   ]
 }
