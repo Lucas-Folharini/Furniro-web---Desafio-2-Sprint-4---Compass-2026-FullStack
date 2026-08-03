@@ -66,7 +66,7 @@ function ProductCard({ product, onAddToCart }: ProductCardProps) {
         <div className="flex flex-col items-center gap-4">
           <button
             onClick={() => onAddToCart(product)}
-            className="bg-white text-[#B88E2F] font-semibold py-3 px-10 hover:bg-[#B88E2F] hover:text-white transition-colors"
+            className="bg-white text-[#B88E2F] font-semibold py-3 px-10 hover:bg-[#B88E2F] hover:text-white transition-colors cursor-pointer"
           >
             Add to cart
           </button>
@@ -158,8 +158,6 @@ export function ProductsSection({ category }: ProductsSectionProps) {
 
   const totalItems = filteredProducts.length;
   const totalPages = Math.max(Math.ceil(totalItems / itemsPerPage), 1);
-  const showingFrom = totalItems === 0 ? 0 : (currentPage - 1) * itemsPerPage + 1;
-  const showingTo = Math.min(currentPage * itemsPerPage, totalItems);
   const pageProducts = filteredProducts.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage,
@@ -200,11 +198,6 @@ export function ProductsSection({ category }: ProductsSectionProps) {
 
       <div className="w-full bg-white py-10 px-4 lg:px-0">
         <div className="w-full max-w-[1240px] mx-auto">
-          <div className="mb-6 flex items-center justify-end gap-3">
-            <span className="font-poppins text-[16px] text-[#898989]">
-              Showing {showingFrom}–{showingTo} of {totalItems} results
-            </span>
-          </div>
 
           {isLoading ? (
             <div className="text-center py-12 font-poppins text-[#898989]">
@@ -222,27 +215,40 @@ export function ProductsSection({ category }: ProductsSectionProps) {
             </div>
           )}
 
-          <div className="flex items-center justify-center gap-3">
-            <button
-              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-              disabled={currentPage === 1}
-              className="px-4 py-2 border border-[#B88E2F] text-[#B88E2F] disabled:opacity-40 disabled:cursor-not-allowed"
-            >
-              Prev
-            </button>
+          {/* =========================================
+              PAGINAÇÃO EXACT MATCH FIGMA (Frame 72)
+             ========================================= */}
+          <div className="flex items-center justify-center gap-[38px] mt-[30px]">
+            {/* Páginas numéricas (1, 2, 3...) */}
+            {Array.from({ length: totalPages }, (_, index) => {
+              const pageNumber = index + 1;
+              const isActive = pageNumber === currentPage;
 
-            <span className="font-poppins text-[16px] text-[#3A3A3A]">
-              Page {currentPage} of {totalPages}
-            </span>
+              return (
+                <button
+                  key={pageNumber}
+                  onClick={() => setCurrentPage(pageNumber)}
+                  className={`w-[60px] h-[60px] rounded-[10px] font-poppins text-[20px] font-normal leading-none flex items-center justify-center cursor-pointer transition-colors ${
+                    isActive
+                      ? "bg-[#B88E2F] text-white"
+                      : "bg-[#F9F1E7] text-black hover:bg-[#B88E2F] hover:text-white"
+                  }`}
+                >
+                  {pageNumber}
+                </button>
+              );
+            })}
 
+            {/* Botão Next (Group 71: 98px x 60px, Font Light 300) */}
             <button
               onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
               disabled={currentPage >= totalPages}
-              className="px-4 py-2 border border-[#B88E2F] text-[#B88E2F] disabled:opacity-40 disabled:cursor-not-allowed"
+              className="w-[98px] h-[60px] rounded-[10px] bg-[#F9F1E7] text-black font-poppins text-[20px] font-light leading-none flex items-center justify-center cursor-pointer hover:bg-[#B88E2F] hover:text-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               Next
             </button>
           </div>
+
         </div>
       </div>
     </section>
