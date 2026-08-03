@@ -8,12 +8,10 @@ export function Banner() {
       style={{ backgroundImage: `url(${bannerImg})` }}
     >
       <div className="flex flex-col items-center justify-center text-center">
-        {/* Título "Shop" ajustado conforme as métricas do Figma (Altura: 72px, Cor: #000000) */}
         <h1 className="text-[48px] font-medium text-[#000000] leading-[72px] h-[72px] flex items-center justify-center">
           Shop
         </h1>
 
-        {/* Breadcrumb Home > Shop */}
         <nav className="flex items-center gap-1.5 text-base text-black mt-0">
           <Link to="/" className="font-medium hover:opacity-75 transition-opacity">
             Home

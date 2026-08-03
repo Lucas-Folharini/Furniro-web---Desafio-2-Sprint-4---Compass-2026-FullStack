@@ -215,9 +215,6 @@ export function ProductsSection({ category }: ProductsSectionProps) {
             </div>
           )}
 
-          {/* =========================================
-              PAGINAÇÃO EXACT MATCH FIGMA (Frame 72)
-             ========================================= */}
           <div className="flex items-center justify-center gap-[38px] mt-[30px]">
             {/* Páginas numéricas (1, 2, 3...) */}
             {Array.from({ length: totalPages }, (_, index) => {
@@ -239,7 +236,6 @@ export function ProductsSection({ category }: ProductsSectionProps) {
               );
             })}
 
-            {/* Botão Next (Group 71: 98px x 60px, Font Light 300) */}
             <button
               onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
               disabled={currentPage >= totalPages}
