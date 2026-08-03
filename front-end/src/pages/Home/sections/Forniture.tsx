@@ -11,7 +11,6 @@ import setup9 from "../../../assets/forniture-9.png";
 export function Forniture() {
   return (
     <section className="w-full bg-white pt-16 pb-12 overflow-hidden flex flex-col items-center">
-      
       <div className="text-center mb-10">
         <span className="font-poppins font-semibold text-[20px] text-[#616161]">
           Share your setup with
@@ -24,12 +23,10 @@ export function Forniture() {
       {/* CONTAINER MOSAICO */}
       <div className="relative w-full">
         <div className="relative left-1/2 -translate-x-1/2 flex items-center justify-center gap-4 w-max">
-          
           {/* =========================================================
               1. BLOCO ESQUERDA direita/centro
               ========================================================= */}
           <div className="flex flex-col gap-4 items-end justify-center w-[811px]">
-            
             {/* Esquerda Cima */}
             <div className="flex items-end gap-4">
               <img
@@ -57,7 +54,6 @@ export function Forniture() {
                 className="w-[344px] h-[242px] object-cover hover:scale-105 transition-transform"
               />
             </div>
-
           </div>
 
           {/* =========================================================
@@ -75,7 +71,6 @@ export function Forniture() {
               3. BLOCO DIREITA  esquerda/centro
               ========================================================= */}
           <div className="flex flex-col gap-4 items-start justify-center w-[811px]">
-            
             {/* Direita Cima */}
             <div className="flex items-end gap-4">
               <img
@@ -103,9 +98,7 @@ export function Forniture() {
                 className="w-[258px] h-[196px] object-cover hover:scale-105 transition-transform"
               />
             </div>
-
           </div>
-
         </div>
       </div>
     </section>
