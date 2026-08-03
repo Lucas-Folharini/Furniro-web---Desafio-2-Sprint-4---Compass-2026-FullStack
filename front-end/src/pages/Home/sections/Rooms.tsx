@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { Link } from "react-router-dom";
 
 // @ts-expect-error - O Splide não exporta os tipos de CSS corretamente
-import '@splidejs/react-splide/css';
+import "@splidejs/react-splide/css";
 
 import room1 from "../../../assets/room1.jpg";
 import room2 from "../../../assets/room2.jpg";
@@ -17,7 +17,6 @@ const roomsData = [
 export function Rooms() {
   return (
     <section className="w-full bg-[#FCF8F3] py-11 overflow-hidden relative flex justify-center">
-      
       {/* css puro para forçar a cor das bolinhas por cima do carrossel,
           ja q n tem tag para usar tailwind*/}
       <style>
@@ -43,7 +42,6 @@ export function Rooms() {
           CONTAINER PRINCIPAL
           =========================================*/}
       <div className="w-full max-w-[1183px] px-5 lg:px-0 flex flex-col lg:flex-row items-center gap-10">
-        
         {/* =========================================
             LADO ESQUERDO
             ========================================= */}
@@ -55,11 +53,10 @@ export function Rooms() {
             Our designer already made a lot of beautiful prototipe of rooms that
             inspire you
           </p>
-          <Link
-            to="/shop"
-            className="bg-[#B88E2F] text-white font-semibold text-[16px] py-3 px-9 hover:bg-[#9d7725] transition-colors"
-          >
-            Explore More
+          <Link to="/shop">
+            <button className="bg-[#B88E2F] text-white font-semibold text-[16px] py-3 px-9 hover:bg-[#9d7725] transition-colors">
+              Explore More
+            </button>
           </Link>
         </div>
 
@@ -82,7 +79,7 @@ export function Rooms() {
                 768: { perPage: 1, gap: "16px" },
               },
             }}
-            className="pb-12" 
+            className="pb-12"
           >
             {roomsData.map((room) => (
               <SplideSlide key={room.id}>
