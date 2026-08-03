@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ProductBreadcrumb } from "./sections/ProductBreadcrumb";
 import { ProductDetailsSection } from "./sections/ProductDetailsSection";
+import { ProductTabsSection } from "./sections/ProductTabsSection";
 
 const API_URL = "http://localhost:3000/products";
 
@@ -33,8 +34,7 @@ export function ProductDetail() {
 
         <ProductDetailsSection />
 
-        {/* 3. Abas de Descrição, Informações e Avaliações (Próximo passo) */}
-        {/* <ProductTabsSection /> */}
+        <ProductTabsSection />
 
         {/* 4. Produtos Relacionados (Próximo passo) */}
         {/* <RelatedProductsSection /> */}

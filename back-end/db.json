@@ -22,6 +22,7 @@
         "/images/prod-2.jpeg",
         "/images/prod-3.jpeg"
       ],
+      "longDescription": "Uma peça pensada para unir conforto, leveza visual e presença elegante. Sua estrutura acolchoada oferece suporte ideal para refeições longas, conversas descontraídas e ambientes sofisticados, enquanto o acabamento detalhado eleva o estilo da composição.",
       "complementaryDescription": "Esse modelo une conforto de assento acolchoado e design contemporâneo para compor áreas de jantar elegantes e funcionais.",
       "additionalInfo": [
         "Material: MDF com acabamento em madeira natural",
@@ -52,6 +53,7 @@
         "/images/prod-1.jpeg",
         "/images/prod-4.jpeg"
       ],
+      "longDescription": "Com design leve e linhas simples, esta peça é excelente para quem busca sofisticação sem exageros. Ela se encaixa em cozinhas, salas de jantar e áreas com espaço reduzido, trazendo praticidade, conforto visual e acabamento refinado.",
       "complementaryDescription": "A estrutura leve e o visual clean permitem que o produto se adapte facilmente a ambientes pequenos, sem perder sofisticação.",
       "additionalInfo": [
         "Material: madeira com revestimento texturizado",
@@ -82,6 +84,7 @@
         "/images/prod-4.jpeg",
         "/images/prod-5.jpeg"
       ],
+      "longDescription": "Este sofá combina conforto de alta performance com presença marcante na decoração. Seu formato amplo permite receber visitas com conforto, enquanto o material premium e a estrutura robusta entregam acabamento sofisticado e durabilidade para uso diário.",
       "complementaryDescription": "O acabamento premium e a proporção ampla proporcionam conforto para receber visitas e criar um ponto focal no ambiente de convivência.",
       "additionalInfo": [
         "Material: linho premium com enchimento em espuma",
@@ -112,6 +115,7 @@
         "/images/prod-3.jpeg",
         "/images/prod-6.jpeg"
       ],
+      "longDescription": "Uma solução funcional para áreas sociais, com formato compacto e design moderno. A peça oferece praticidade para reuniões casuais, além de um visual elegante que valoriza cozinhas abertas, lounges e ambientes com identidade contemporânea.",
       "complementaryDescription": "Ideal para uso versátil em áreas sociais, com perfil compacto, resistência e brilho moderno na composição.",
       "additionalInfo": [
         "Material: aço com acabamento resistente",
@@ -142,6 +146,7 @@
         "/images/prod-6.jpeg",
         "/images/prod-7.jpeg"
       ],
+      "longDescription": "A iluminação suave desta peça cria uma atmosfera acolhedora e refinada, ideal para quartos com estilo elegante e desejo de conforto íntimo. Seu design delicado complementa a decoração sem perder funcionalidade.",
       "complementaryDescription": "A iluminação suave destaca a sensação de aconchego e traz um ponto de luz delicado para o quarto.",
       "additionalInfo": [
         "Material: vidro e metal com acabamento fosco",
@@ -172,6 +177,7 @@
         "/images/prod-5.jpeg",
         "/images/prod-7.jpeg"
       ],
+      "longDescription": "Um complemento discreto com personalidade. Sua forma simples e acabamento refinado permitem uso cotidiano com um toque decorativo leve, ajudando a criar ambientes mais charmosos e visualmente equilibrados.",
       "complementaryDescription": "Um item discreto que coloca personalidade no ambiente sem exigir grandes mudanças na decoração.",
       "additionalInfo": [
         "Material: cerâmica resistente",
@@ -202,6 +208,7 @@
         "/images/prod-6.jpeg",
         "/images/prod-8.jpeg"
       ],
+      "longDescription": "Este conjunto foi desenvolvido para trazer conforto, suavidade e charme ao ambiente do quarto. Seu visual delicado eleva o acolhimento do espaço e combina bem com decorações que priorizam descanso, elegância e uma sensação de bem-estar.",
       "complementaryDescription": "A combinação de conforto e estética leve transforma o quarto em um refúgio sofisticado e com visual acolhedor.",
       "additionalInfo": [
         "Material: tecido macio e estrutura interna reforçada",
@@ -232,6 +239,7 @@
         "/images/prod-1.jpeg",
         "/images/prod-2.jpeg"
       ],
+      "longDescription": "Com desenho minimalista e aparência refinada, o vaso se destaca como peça decorativa funcional para mesas, estantes e outros pontos estratégicos da casa. Sua estética clean favorece combinações modernas e sofisticadas em qualquer ambiente.",
       "complementaryDescription": "Com linhas simples e materiais elegantes, o vaso funciona como peça de destaque em mesas, prateleiras e áreas sociais.",
       "additionalInfo": [
         "Material: cerâmica e acabamento suave",
