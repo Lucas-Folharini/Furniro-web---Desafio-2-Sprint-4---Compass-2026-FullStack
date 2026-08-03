@@ -29,7 +29,7 @@ export function BrowseRange() {
             <h3 className="font-poppins font-semibold text-[24px] text-[#333333]">
               Dining
             </h3>
-          </Link>
+          </div>
 
           {/* CARTÃO 2: Living */}
           <div className="flex flex-col items-center gap-[30px]">
@@ -44,7 +44,7 @@ export function BrowseRange() {
             <h3 className="font-poppins font-semibold text-[24px] text-[#333333]">
               Living
             </h3>
-          </Link>
+          </div>
 
           {/* CARTÃO 3: Bedroom */}
           <div className="flex flex-col items-center gap-[30px]">
@@ -58,7 +58,7 @@ export function BrowseRange() {
             <h3 className="font-poppins font-semibold text-[24px] text-[#333333]">
               Bedroom
             </h3>
-          </Link>
+          </div>
         </div>
       </div>
     </section>
