@@ -1,24 +1,42 @@
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ProductBreadcrumb } from "./sections/ProductBreadcrumb";
+import { ProductDetailsSection } from "./sections/ProductDetailsSection";
+
+const API_URL = "http://localhost:3000/products";
 
 export function ProductDetail() {
   const { id } = useParams<{ id: string }>();
+  const [productName, setProductName] = useState<string>("");
 
-  // Exemplo de mockup de nome do produto (depois integrado com seu estado/API pelo ID)
-  const productName = id ? `Produto ${id}` : "Asgaard sofa";
+  useEffect(() => {
+    async function fetchProductName() {
+      try {
+        const targetId = id || "1";
+        const response = await fetch(`${API_URL}/${targetId}`);
+        const data = await response.json();
+        if (data?.name) {
+          setProductName(data.name);
+        }
+      } catch (error) {
+        console.error("Erro ao buscar nome do produto para o Breadcrumb:", error);
+      }
+    }
+
+    fetchProductName();
+  }, [id]);
 
   return (
     <div className="w-full min-h-screen bg-white pt-[110px]">
       <main>
-        <ProductBreadcrumb productName={productName} />
+        <ProductBreadcrumb productName={productName || "Detalhes do Produto"} />
 
-        {/* 2. Galeria de Fotos e Detalhes da Compra (Próximo bloco) */}
-        {/* <ProductDetailsSection productId={id} /> */}
+        <ProductDetailsSection />
 
-        {/* 3. Abas de Descrição, Informações e Avaliações */}
+        {/* 3. Abas de Descrição, Informações e Avaliações (Próximo passo) */}
         {/* <ProductTabsSection /> */}
 
-        {/* 4. Produtos Relacionados */}
+        {/* 4. Produtos Relacionados (Próximo passo) */}
         {/* <RelatedProductsSection /> */}
       </main>
     </div>
