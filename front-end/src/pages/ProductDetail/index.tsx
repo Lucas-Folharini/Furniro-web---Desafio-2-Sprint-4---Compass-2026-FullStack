@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { ProductBreadcrumb } from "./sections/ProductBreadcrumb";
 import { ProductDetailsSection } from "./sections/ProductDetailsSection";
 import { ProductTabsSection } from "./sections/ProductTabsSection";
+import { RelatedProductsSection } from "./sections/RelatedProductsSection";
 
 const API_URL = "http://localhost:3000/products";
 
@@ -36,8 +37,7 @@ export function ProductDetail() {
 
         <ProductTabsSection />
 
-        {/* 4. Produtos Relacionados (Próximo passo) */}
-        {/* <RelatedProductsSection /> */}
+        <RelatedProductsSection />
       </main>
     </div>
   );

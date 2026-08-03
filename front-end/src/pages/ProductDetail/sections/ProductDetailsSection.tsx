@@ -275,13 +275,13 @@ export function ProductDetailsSection() {
               <span className="w-[80px]">Share</span>
               <span>:</span>
               <div className="flex items-center gap-6 text-black ml-1">
-                <a href="#facebook" className="hover:opacity-70 transition-opacity" title="Facebook">
+                <a href="https://www.facebook.com/compass.uol/?locale=pt_BR" className="hover:opacity-70 transition-opacity" title="Facebook">
                   <img src={facebookIcon} alt="Facebook" className="w-5 h-5" />
                 </a>
-                <a href="#linkedin" className="hover:opacity-70 transition-opacity" title="LinkedIn">
+                <a href="https://br.linkedin.com/company/compass-uol?original_referer=https%3A%2F%2Fwww.google.com%2F" className="hover:opacity-70 transition-opacity" title="LinkedIn">
                   <img src={linkedinIcon} alt="LinkedIn" className="w-5 h-5" />
                 </a>
-                <a href="#twitter" className="hover:opacity-70 transition-opacity" title="Twitter">
+                <a href="https://x.com/compassuol" className="hover:opacity-70 transition-opacity" title="Twitter">
                   <img src={twitterIcon} alt="Twitter" className="w-5 h-5" />
                 </a>
               </div>
