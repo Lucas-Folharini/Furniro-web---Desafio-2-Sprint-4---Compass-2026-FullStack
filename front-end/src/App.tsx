@@ -7,6 +7,8 @@ import { Home } from "./pages/Home";
 import { Shop } from "./pages/Shop";
 import { ProductDetail } from "./pages/ProductDetail";
 
+import { Cart } from "./pages/Cart"; 
+
 function App() {
   return (
     <div className="min-h-screen flex flex-col font-poppins">
@@ -27,6 +29,8 @@ function App() {
         <Route path="/shop/:category" element={<Shop />} />
         
         <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/cart" element={<Cart />} />
+
       </Routes>
 
       <Footer />
