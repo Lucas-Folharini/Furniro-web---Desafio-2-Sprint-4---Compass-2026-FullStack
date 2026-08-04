@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
 
-import { Banner } from "./sections/Banner";
+import { Banner } from "../../components/PageBanner";
+import { FeaturesSection } from "../../components/FeaturesSection";
+
 import { ProductsSection } from "./sections/ProductsSection";
-import { FeaturesSection } from "./sections/FeaturesSection";
 
 export function Shop() {
   const { category = "" } = useParams();
@@ -10,8 +11,10 @@ export function Shop() {
   return (
     <div className="w-full min-h-screen bg-white">
       <main>
-        <Banner />
+        <Banner title="Shop" />
+        
         <ProductsSection key={category || "all"} category={category} />
+        
         <FeaturesSection />
       </main>
     </div>
