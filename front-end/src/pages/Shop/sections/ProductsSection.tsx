@@ -1,88 +1,17 @@
 import { useEffect, useMemo, useState } from "react";
-import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
-
 import { FilterBar } from "./FilterBar";
+import { ProductCard, type Product } from "../../../components/ProductCard"; 
 
-interface Product {
-  id: number;
-  name: string;
-  description: string;
-  price: string;
-  oldPrice: string | null;
-  image: string;
-  badge: string | null;
-  badgeColor: string | null;
+interface ShopProduct extends Product {
   category: string;
-  sku: string;
+  sku?: string;
 }
 
 interface ProductsSectionProps {
   category: string;
 }
 
-interface ProductCardProps {
-  product: Product;
-  onAddToCart: (product: Product) => void;
-}
-
 const API_URL = "http://localhost:3000/products";
-
-function ProductCard({ product, onAddToCart }: ProductCardProps) {
-  return (
-    <div className="group relative bg-[#F4F5F7] flex flex-col overflow-hidden">
-      <Link to={`/product/${product.id}`} className="block">
-        <div className="relative w-full h-[301px]">
-          <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
-
-        {product.badge && (
-          <div
-            className="absolute top-6 right-6 w-12 h-12 rounded-full flex items-center justify-center text-white font-medium text-sm z-10"
-            style={{ backgroundColor: product.badgeColor || "#E97171" }}
-          >
-            {product.badge}
-          </div>
-        )}
-      </div>
-
-      <div className="p-4 flex flex-col gap-2">
-            <h3 className="font-poppins font-semibold text-[24px] text-[#3A3A3A]">
-              {product.name}
-            </h3>
-            <p className="font-poppins font-medium text-[#898989] text-[16px] truncate">
-              {product.description}
-            </p>
-            <div className="flex items-center gap-4 mt-1">
-              <span className="font-poppins font-semibold text-[20px] text-[#3A3A3A]">
-                {product.price}
-              </span>
-              {product.oldPrice && (
-                <span className="font-poppins text-[16px] text-[#B0B0B0] line-through">
-                  {product.oldPrice}
-                </span>
-              )}
-            </div>
-          </div>
-        </Link>
-      <div className="absolute inset-0 bg-[#3A3A3A]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
-        <div className="flex flex-col items-center gap-4">
-          <button
-            onClick={() => onAddToCart(product)}
-            className="bg-white text-[#B88E2F] font-semibold py-3 px-10 hover:bg-[#B88E2F] hover:text-white transition-colors cursor-pointer"
-          >
-            Add to cart
-          </button>
-
-          <div className="flex gap-4 text-white text-sm">
-            <span className="cursor-pointer hover:text-[#B88E2F]">Share</span>
-            <span className="cursor-pointer hover:text-[#B88E2F]">Compare</span>
-            <span className="cursor-pointer hover:text-[#B88E2F]">Like</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 const normalizePrice = (price: string) => {
   const parsed = Number(price.replace(/[^\d]/g, ""));
@@ -101,7 +30,7 @@ const getSortValue = (sortBy: string) => {
 };
 
 export function ProductsSection({ category }: ProductsSectionProps) {
-  const [allProducts, setAllProducts] = useState<Product[]>([]);
+  const [allProducts, setAllProducts] = useState<ShopProduct[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(16);
   const [sortBy, setSortBy] = useState("Default");
@@ -120,7 +49,7 @@ export function ProductsSection({ category }: ProductsSectionProps) {
           signal: controller.signal,
         });
 
-        const payload = (await response.json()) as Product[] | { data?: Product[] };
+        const payload = (await response.json()) as ShopProduct[] | { data?: ShopProduct[] };
         const data = Array.isArray(payload) ? payload : payload.data ?? [];
 
         setAllProducts(data);
@@ -140,7 +69,7 @@ export function ProductsSection({ category }: ProductsSectionProps) {
 
   const filteredProducts = useMemo(() => {
     const categoryProducts = selectedCategory
-      ? allProducts.filter((product) => product.category.toLowerCase() === selectedCategory)
+      ? allProducts.filter((product) => product.category?.toLowerCase() === selectedCategory)
       : allProducts;
 
     const sortValue = getSortValue(sortBy);
@@ -165,26 +94,6 @@ export function ProductsSection({ category }: ProductsSectionProps) {
     currentPage * itemsPerPage,
   );
 
-  const addToCart = (product: Product) => {
-    const storageKey = "furniro-cart";
-    const storedCart = localStorage.getItem(storageKey);
-    const cartItems = storedCart ? JSON.parse(storedCart) : [];
-
-    cartItems.push(product);
-    localStorage.setItem(storageKey, JSON.stringify(cartItems));
-
-    toast.success(`${product.name} added to cart!`, {
-      style: {
-        background: "#2EC1AC",
-        color: "#fff",
-      },
-      iconTheme: {
-        primary: "#fff",
-        secondary: "#2EC1AC",
-      },
-    });
-  };
-
   return (
     <section className="w-full bg-white">
       <FilterBar
@@ -200,7 +109,6 @@ export function ProductsSection({ category }: ProductsSectionProps) {
 
       <div className="w-full bg-white py-10 px-4 lg:px-0">
         <div className="w-full max-w-[1240px] mx-auto">
-
           {isLoading ? (
             <div className="text-center py-12 font-poppins text-[#898989]">
               Loading products...
@@ -212,13 +120,12 @@ export function ProductsSection({ category }: ProductsSectionProps) {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
               {pageProducts.map((product) => (
-                <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
+                <ProductCard key={product.id} product={product} />
               ))}
             </div>
           )}
 
           <div className="flex items-center justify-center gap-[38px] mt-[30px]">
-            {/* Páginas numéricas (1, 2, 3...) */}
             {Array.from({ length: totalPages }, (_, index) => {
               const pageNumber = index + 1;
               const isActive = pageNumber === currentPage;
@@ -246,7 +153,6 @@ export function ProductsSection({ category }: ProductsSectionProps) {
               Next
             </button>
           </div>
-
         </div>
       </div>
     </section>
