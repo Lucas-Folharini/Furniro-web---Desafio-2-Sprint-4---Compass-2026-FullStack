@@ -3,6 +3,7 @@ import { useCartStore } from "../../store/useCartStore";
 import { FeaturesSection } from "../Shop/sections/FeaturesSection";
 import trashIcon from "../../assets/trashIcon.svg"; 
 import { Banner } from "../../components/PageBanner";
+import toast from "react-hot-toast";
 
 
 const parsePrice = (priceStr: string) => {
@@ -14,11 +15,27 @@ const formatPrice = (price: number) => {
 };
 
 export function Cart() {
-  const { items, updateQuantity, removeItem } = useCartStore();
+  const { items, updateQuantity, removeItem, clearCart } = useCartStore();
 
   const cartTotal = items.reduce((acc, item) => {
     return acc + parsePrice(item.price) * item.quantity;
   }, 0);
+
+  const handleCheckOut = () => {
+    if (items.length > 0) {
+      clearCart();
+      toast.success(`Checkout successful! Proceeding to payment.`, {
+      style: {
+        background: "#2EC1AC",
+        color: "#fff",
+      },
+      iconTheme: {
+        primary: "#fff",
+        secondary: "#2EC1AC",
+      },
+    });
+    }
+  };
 
   return (
     <>
@@ -133,7 +150,10 @@ export function Cart() {
                 </span>
               </div>
 
-              <button className="w-full max-w-[222px] py-[14px] border border-[#000000] rounded-[15px] font-poppins text-[20px] text-[#000000] hover:bg-[#000000] hover:text-white transition-colors">
+              <button 
+                onClick={handleCheckOut}
+                className="w-full max-w-[222px] py-[14px] border border-[#000000] rounded-[15px] font-poppins text-[20px] text-[#000000] hover:bg-[#000000] hover:text-white transition-colors"
+              >
                 Check Out
               </button>
             </div>
