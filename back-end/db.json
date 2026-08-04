@@ -11,7 +11,25 @@
       "badgeColor": "#E97171",
       "category": "dining",
       "sku": "SKU-001",
-      "discount": 30
+      "discount": 30,
+      "colors": [
+        { "name": "Ivory", "value": "#F4F1EA" },
+        { "name": "Walnut", "value": "#8A5A44" }
+      ],
+      "sizes": ["S", "M", "L"],
+      "gallery": [
+        "/images/prod-1.jpeg",
+        "/images/prod-2.jpeg",
+        "/images/prod-3.jpeg"
+      ],
+      "longDescription": "Uma peça pensada para unir conforto, leveza visual e presença elegante. Sua estrutura acolchoada oferece suporte ideal para refeições longas, conversas descontraídas e ambientes sofisticados, enquanto o acabamento detalhado eleva o estilo da composição.",
+      "complementaryDescription": "Esse modelo une conforto de assento acolchoado e design contemporâneo para compor áreas de jantar elegantes e funcionais.",
+      "additionalInfo": [
+        "Material: MDF com acabamento em madeira natural",
+        "Peso: 8.5 kg",
+        "Garantia: 12 meses",
+        "Entregas: em 3 a 5 dias úteis"
+      ]
     },
     {
       "id": 2,
@@ -24,7 +42,25 @@
       "badgeColor": null,
       "category": "dining",
       "sku": "SKU-002",
-      "discount": 0
+      "discount": 0,
+      "colors": [
+        { "name": "Light Oak", "value": "#D9C5A0" },
+        { "name": "Dark Oak", "value": "#7A4B2B" }
+      ],
+      "sizes": ["XS", "S", "M"],
+      "gallery": [
+        "/images/prod-2.jpeg",
+        "/images/prod-1.jpeg",
+        "/images/prod-4.jpeg"
+      ],
+      "longDescription": "Com design leve e linhas simples, esta peça é excelente para quem busca sofisticação sem exageros. Ela se encaixa em cozinhas, salas de jantar e áreas com espaço reduzido, trazendo praticidade, conforto visual e acabamento refinado.",
+      "complementaryDescription": "A estrutura leve e o visual clean permitem que o produto se adapte facilmente a ambientes pequenos, sem perder sofisticação.",
+      "additionalInfo": [
+        "Material: madeira com revestimento texturizado",
+        "Peso: 6.2 kg",
+        "Garantia: 12 meses",
+        "Entregas: em 3 a 5 dias úteis"
+      ]
     },
     {
       "id": 3,
@@ -37,7 +73,25 @@
       "badgeColor": "#E97171",
       "category": "living",
       "sku": "SKU-003",
-      "discount": 50
+      "discount": 50,
+      "colors": [
+        { "name": "Sand", "value": "#E7D7C2" },
+        { "name": "Graphite", "value": "#4D4D4D" }
+      ],
+      "sizes": ["M", "L", "XL"],
+      "gallery": [
+        "/images/prod-3.jpeg",
+        "/images/prod-4.jpeg",
+        "/images/prod-5.jpeg"
+      ],
+      "longDescription": "Este sofá combina conforto de alta performance com presença marcante na decoração. Seu formato amplo permite receber visitas com conforto, enquanto o material premium e a estrutura robusta entregam acabamento sofisticado e durabilidade para uso diário.",
+      "complementaryDescription": "O acabamento premium e a proporção ampla proporcionam conforto para receber visitas e criar um ponto focal no ambiente de convivência.",
+      "additionalInfo": [
+        "Material: linho premium com enchimento em espuma",
+        "Peso: 21 kg",
+        "Garantia: 24 meses",
+        "Entregas: em 5 a 7 dias úteis"
+      ]
     },
     {
       "id": 4,
@@ -50,7 +104,25 @@
       "badgeColor": "#2EC1AC",
       "category": "living",
       "sku": "SKU-004",
-      "discount": 0
+      "discount": 0,
+      "colors": [
+        { "name": "Clay", "value": "#C7865E" },
+        { "name": "Black", "value": "#303030" }
+      ],
+      "sizes": ["P", "M"],
+      "gallery": [
+        "/images/prod-4.jpeg",
+        "/images/prod-3.jpeg",
+        "/images/prod-6.jpeg"
+      ],
+      "longDescription": "Uma solução funcional para áreas sociais, com formato compacto e design moderno. A peça oferece praticidade para reuniões casuais, além de um visual elegante que valoriza cozinhas abertas, lounges e ambientes com identidade contemporânea.",
+      "complementaryDescription": "Ideal para uso versátil em áreas sociais, com perfil compacto, resistência e brilho moderno na composição.",
+      "additionalInfo": [
+        "Material: aço com acabamento resistente",
+        "Peso: 4.8 kg",
+        "Garantia: 12 meses",
+        "Entregas: em 2 a 4 dias úteis"
+      ]
     },
     {
       "id": 5,
@@ -63,7 +135,25 @@
       "badgeColor": null,
       "category": "bedroom",
       "sku": "SKU-005",
-      "discount": 0
+      "discount": 0,
+      "colors": [
+        { "name": "Cream", "value": "#E9E0D0" },
+        { "name": "Mocha", "value": "#6A4D39" }
+      ],
+      "sizes": ["S", "M"],
+      "gallery": [
+        "/images/prod-5.jpeg",
+        "/images/prod-6.jpeg",
+        "/images/prod-7.jpeg"
+      ],
+      "longDescription": "A iluminação suave desta peça cria uma atmosfera acolhedora e refinada, ideal para quartos com estilo elegante e desejo de conforto íntimo. Seu design delicado complementa a decoração sem perder funcionalidade.",
+      "complementaryDescription": "A iluminação suave destaca a sensação de aconchego e traz um ponto de luz delicado para o quarto.",
+      "additionalInfo": [
+        "Material: vidro e metal com acabamento fosco",
+        "Peso: 2.4 kg",
+        "Garantia: 6 meses",
+        "Entregas: em 2 a 4 dias úteis"
+      ]
     },
     {
       "id": 6,
@@ -76,7 +166,25 @@
       "badgeColor": "#2EC1AC",
       "category": "bedroom",
       "sku": "SKU-006",
-      "discount": 0
+      "discount": 0,
+      "colors": [
+        { "name": "Pearl", "value": "#F6F2E9" },
+        { "name": "Terracotta", "value": "#B86B44" }
+      ],
+      "sizes": ["P", "M"],
+      "gallery": [
+        "/images/prod-6.jpeg",
+        "/images/prod-5.jpeg",
+        "/images/prod-7.jpeg"
+      ],
+      "longDescription": "Um complemento discreto com personalidade. Sua forma simples e acabamento refinado permitem uso cotidiano com um toque decorativo leve, ajudando a criar ambientes mais charmosos e visualmente equilibrados.",
+      "complementaryDescription": "Um item discreto que coloca personalidade no ambiente sem exigir grandes mudanças na decoração.",
+      "additionalInfo": [
+        "Material: cerâmica resistente",
+        "Peso: 1.1 kg",
+        "Garantia: 6 meses",
+        "Entregas: em 2 a 4 dias úteis"
+      ]
     },
     {
       "id": 7,
@@ -89,7 +197,25 @@
       "badgeColor": "#E97171",
       "category": "bedroom",
       "sku": "SKU-007",
-      "discount": 50
+      "discount": 50,
+      "colors": [
+        { "name": "Blush", "value": "#EBD0D5" },
+        { "name": "Seafoam", "value": "#A9D0C8" }
+      ],
+      "sizes": ["Queen", "King"],
+      "gallery": [
+        "/images/prod-7.jpeg",
+        "/images/prod-6.jpeg",
+        "/images/prod-8.jpeg"
+      ],
+      "longDescription": "Este conjunto foi desenvolvido para trazer conforto, suavidade e charme ao ambiente do quarto. Seu visual delicado eleva o acolhimento do espaço e combina bem com decorações que priorizam descanso, elegância e uma sensação de bem-estar.",
+      "complementaryDescription": "A combinação de conforto e estética leve transforma o quarto em um refúgio sofisticado e com visual acolhedor.",
+      "additionalInfo": [
+        "Material: tecido macio e estrutura interna reforçada",
+        "Peso: 18 kg",
+        "Garantia: 24 meses",
+        "Entregas: em 5 a 7 dias úteis"
+      ]
     },
     {
       "id": 8,
@@ -102,7 +228,25 @@
       "badgeColor": "#2EC1AC",
       "category": "dining",
       "sku": "SKU-008",
-      "discount": 0
+      "discount": 0,
+      "colors": [
+        { "name": "Stone", "value": "#CFCFCF" },
+        { "name": "Sage", "value": "#8CA08B" }
+      ],
+      "sizes": ["P", "M", "G"],
+      "gallery": [
+        "/images/prod-8.jpeg",
+        "/images/prod-1.jpeg",
+        "/images/prod-2.jpeg"
+      ],
+      "longDescription": "Com desenho minimalista e aparência refinada, o vaso se destaca como peça decorativa funcional para mesas, estantes e outros pontos estratégicos da casa. Sua estética clean favorece combinações modernas e sofisticadas em qualquer ambiente.",
+      "complementaryDescription": "Com linhas simples e materiais elegantes, o vaso funciona como peça de destaque em mesas, prateleiras e áreas sociais.",
+      "additionalInfo": [
+        "Material: cerâmica e acabamento suave",
+        "Peso: 3.1 kg",
+        "Garantia: 12 meses",
+        "Entregas: em 2 a 4 dias úteis"
+      ]
     }
   ]
 }

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 import { FilterBar } from "./FilterBar";
 
@@ -30,8 +31,9 @@ const API_URL = "http://localhost:3000/products";
 function ProductCard({ product, onAddToCart }: ProductCardProps) {
   return (
     <div className="group relative bg-[#F4F5F7] flex flex-col overflow-hidden">
-      <div className="relative w-full h-[301px]">
-        <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+      <Link to={`/product/${product.id}`} className="block">
+        <div className="relative w-full h-[301px]">
+          <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
 
         {product.badge && (
           <div
@@ -44,24 +46,24 @@ function ProductCard({ product, onAddToCart }: ProductCardProps) {
       </div>
 
       <div className="p-4 flex flex-col gap-2">
-        <h3 className="font-poppins font-semibold text-[24px] text-[#3A3A3A]">
-          {product.name}
-        </h3>
-        <p className="font-poppins font-medium text-[#898989] text-[16px] truncate">
-          {product.description}
-        </p>
-        <div className="flex items-center gap-4 mt-1">
-          <span className="font-poppins font-semibold text-[20px] text-[#3A3A3A]">
-            {product.price}
-          </span>
-          {product.oldPrice && (
-            <span className="font-poppins text-[16px] text-[#B0B0B0] line-through">
-              {product.oldPrice}
-            </span>
-          )}
-        </div>
-      </div>
-
+            <h3 className="font-poppins font-semibold text-[24px] text-[#3A3A3A]">
+              {product.name}
+            </h3>
+            <p className="font-poppins font-medium text-[#898989] text-[16px] truncate">
+              {product.description}
+            </p>
+            <div className="flex items-center gap-4 mt-1">
+              <span className="font-poppins font-semibold text-[20px] text-[#3A3A3A]">
+                {product.price}
+              </span>
+              {product.oldPrice && (
+                <span className="font-poppins text-[16px] text-[#B0B0B0] line-through">
+                  {product.oldPrice}
+                </span>
+              )}
+            </div>
+          </div>
+        </Link>
       <div className="absolute inset-0 bg-[#3A3A3A]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
         <div className="flex flex-col items-center gap-4">
           <button
