@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useCartStore } from "../store/useCartStore";
 
 export interface Product {
   id: number;
@@ -17,12 +18,16 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+  // Puxa a action da Store para adicionar o item ao carrinho
+  const addItem = useCartStore((state) => state.addItem);
 
-  // adicionar ao carrinho sem mudar de página
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault(); 
+    console.log("Produto clicado:", product.id, product.name);
+    e.preventDefault();
     e.stopPropagation();
-    
+
+    addItem(product);
+
     toast.success(`${product.name} added to cart!`, {
       style: {
         background: "#2EC1AC",
