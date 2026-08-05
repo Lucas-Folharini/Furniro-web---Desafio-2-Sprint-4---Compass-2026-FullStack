@@ -36,9 +36,21 @@ export function FilterBar({
   };
 
   const handleShowCountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = Number(e.target.value);
-    setShowCount(val);
-    if (onItemsPerPageChange) onItemsPerPageChange(val);
+    const rawValue = e.target.value;
+
+    if (rawValue === "") {
+      setShowCount(1);
+      if (onItemsPerPageChange) onItemsPerPageChange(1);
+      return;
+    }
+
+    const val = Number(rawValue);
+
+    if (!Number.isNaN(val)) {
+      const sanitizedValue = Math.max(1, Math.floor(val));
+      setShowCount(sanitizedValue);
+      if (onItemsPerPageChange) onItemsPerPageChange(sanitizedValue);
+    }
   };
 
   const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -99,8 +111,16 @@ export function FilterBar({
             <input
               id="show-input"
               type="number"
+              inputMode="numeric"
+              min="1"
+              step="1"
               value={showCount}
               onChange={handleShowCountChange}
+              onKeyDown={(e) => {
+                if (["e", "E", "+", "-", "."].includes(e.key)) {
+                  e.preventDefault();
+                }
+              }}
               className="w-[55px] h-[55px] bg-white text-[#9F9F9F] font-poppins text-[20px] font-normal text-center focus:outline-none focus:ring-1 focus:ring-[#B88E2F] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
             />
           </div>
