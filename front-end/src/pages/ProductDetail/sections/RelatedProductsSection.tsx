@@ -30,9 +30,11 @@ export function RelatedProductsSection() {
           Related Products
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[32px] w-full justify-items-center mb-[44px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[32px] w-full mb-[44px]">
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <div key={product.id} className="w-full max-w-[285px] mx-auto flex flex-col [&>a]:w-full [&>a]:h-full">
+              <ProductCard product={product} />
+            </div>
           ))}
         </div>
 
