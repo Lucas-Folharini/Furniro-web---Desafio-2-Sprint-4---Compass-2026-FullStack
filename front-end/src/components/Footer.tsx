@@ -16,7 +16,7 @@ export function Footer() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!email.trim()) {
-      toast.error("Por favor, insira seu endereço de e-mail.", {
+      toast.error("Please enter your email address.", {
         style: { background: "#E97171", color: "#fff" },
         iconTheme: { primary: "#fff", secondary: "#E97171" },
       });
@@ -24,14 +24,14 @@ export function Footer() {
     }
 
     if (!emailRegex.test(email)) {
-      toast.error("Por favor, insira um e-mail válido.", {
+      toast.error("Please enter a valid email address.", {
         style: { background: "#E97171", color: "#fff" },
         iconTheme: { primary: "#fff", secondary: "#E97171" },
       });
       return;
     }
 
-    toast.success("Inscrito com sucesso!", {
+    toast.success("Successfully subscribed!", {
       style: { background: "#2EC1AC", color: "#fff" },
       iconTheme: { primary: "#fff", secondary: "#2EC1AC" },
     });
