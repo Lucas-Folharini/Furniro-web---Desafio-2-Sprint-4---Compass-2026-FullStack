@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import toast from "react-hot-toast";
 
 import facebookIcon from "../../../assets/facebook.svg";
 import linkedinIcon from "../../../assets/linkedin.svg";
@@ -69,6 +70,15 @@ export function ProductDetailsSection() {
 
     fetchProduct();
   }, [id]);
+
+  const handleAddToCart = () => {
+    if (!product) return;
+
+    toast.success(`${quantity}x ${product.name} added to cart!`, {
+      style: { background: "#2EC1AC", color: "#fff" },
+      iconTheme: { primary: "#fff", secondary: "#2EC1AC" },
+    });
+  };
 
   if (loading) {
     return (
@@ -248,7 +258,10 @@ export function ProductDetailsSection() {
               </button>
             </div>
 
-            <button className="h-[64px] px-12 border border-black rounded-[15px] text-[20px] font-normal text-black hover:bg-black hover:text-white transition-colors">
+            <button
+              onClick={handleAddToCart}
+              className="h-[64px] px-12 border border-black rounded-[15px] text-[20px] font-normal text-black hover:bg-black hover:text-white transition-colors cursor-pointer"
+            >
               Add To Cart
             </button>
           </div>
