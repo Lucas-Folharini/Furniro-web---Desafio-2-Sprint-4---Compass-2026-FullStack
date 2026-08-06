@@ -180,11 +180,11 @@ export function Header() {
             onClick={closeMenu}
             className="hover:text-[#B88E2F]"
           >
-            Carrinho
+            Cart
           </Link>
 
           <button className="text-left hover:text-[#B88E2F]">
-            Perfil
+            Profile
           </button>
         </nav>
       </aside>
