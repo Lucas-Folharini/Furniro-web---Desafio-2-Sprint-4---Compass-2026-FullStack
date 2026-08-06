@@ -21,12 +21,17 @@ export class ProductResponseDto {
   additionalInfo: string;
 
   static from(product: Product): ProductResponseDto {
-    const discountPrice = product.price * (1 - product.discount / 100);
-    const hasDiscount = product.discount > 0;
+    const parsedPrice = Number(product.price);
+    const parsedDiscount = Number(product.discount);
+
+    const discountPrice = parsedPrice * (1 - parsedDiscount / 100);
+    const hasDiscount = parsedDiscount > 0;
 
     return {
       ...product,
-      badge: hasDiscount ? `-${product.discount}%` : product.isNew ? 'New' : null,
+      price: parsedPrice, // Sobrescreve a string do banco com o número
+      discount: parsedDiscount, // Sobrescreve a string do banco com o número
+      badge: hasDiscount ? `-${parsedDiscount}%` : product.isNew ? 'New' : null,
       badgeColor: hasDiscount ? '#E97171' : product.isNew ? '#2EC1AC' : null,
       finalPrice: Number(discountPrice.toFixed(2))
     };
