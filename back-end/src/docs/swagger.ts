@@ -198,8 +198,7 @@ export const swaggerDocument = {
           },
           sizes: {
             type: 'array',
-            items: { type: 'string' },
-            example: ['S', 'M', 'L']
+            items: { $ref: '#/components/schemas/ProductSize' }
           },
           badge: {
             type: 'string',
@@ -223,10 +222,19 @@ export const swaggerDocument = {
       },
       ProductColor: {
         type: 'object',
-        required: ['name', 'value'],
+        required: ['name', 'value', 'priceModifier'],
         properties: {
-          name: { type: 'string', example: 'Ivory' },
-          value: { type: 'string', example: '#F4F1EA' }
+          name: { type: 'string', example: 'Black' },
+          value: { type: 'string', example: '#111827' },
+          priceModifier: { type: 'number', example: 150000 }
+        }
+      },
+      ProductSize: {
+        type: 'object',
+        required: ['name', 'priceModifier'],
+        properties: {
+          name: { type: 'string', example: 'M' },
+          priceModifier: { type: 'number', example: 100000 }
         }
       },
       ErrorResponse: {

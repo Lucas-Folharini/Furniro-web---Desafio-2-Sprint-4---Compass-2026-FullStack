@@ -19,7 +19,7 @@
 
 ---
 
-##  About The Project
+## About The Project
 
 This project was developed as part of the **Challenge 2** for the Compass UOL Fellowship Program. It consists of a pixel-perfect recreation of **Furniro**, a modern e-commerce furniture interface, fully integrated with a custom RESTful API.
 
@@ -27,7 +27,7 @@ The goal was to deliver a robust, scalable, and responsive full-stack applicatio
 
 ---
 
-##  Features
+## Features
 
 - **Dynamic Product Listing:** Server-side pagination, category filtering, and price sorting.
 - **Single Product Page:** Detailed product views with dynamic pricing calculation based on user selection (size and color variations).
@@ -38,7 +38,7 @@ The goal was to deliver a robust, scalable, and responsive full-stack applicatio
 
 ---
 
-##  Architecture & Technologies
+## Architecture & Technologies
 
 The repository is structured as a monorepo containing two main directories:
 
@@ -54,7 +54,7 @@ Built for speed and developer experience.
 - Splide.js
 - React Hot Toast
 
-###  Back-end (`/back-end`)
+### Back-end (`/back-end`)
 
 A scalable backend architecture replacing the standard `json-server` requirement to provide robust filtering and real relational data.
 
@@ -67,7 +67,7 @@ A scalable backend architecture replacing the standard `json-server` requirement
 
 ---
 
-##  Getting Started
+## Getting Started
 
 Follow these instructions to set up and run the project locally.
 
@@ -120,11 +120,52 @@ Open this URL in your browser to explore **Furniro**.
 
 ---
 
-##  The Team
+API Documentation: The backend API is documented using Swagger UI, which can be accessed interactively at
+``http://localhost:3000/docs```
+
+---
+
+📁 Project Structure
+
+To ensure long-term maintainability, the project follows a strict architectural pattern:
+
+```
+📦 back-end
+┣ 📂 public # Images used on products
+┣ 📂 src
+┣ 📂 controllers # Request handlers (products.controller.ts)
+┣ 📂 database # Database configuration and seeding scripts (data-source.ts, seed.ts)
+┣ 📂 docs # Swagger API documentation configuration (swagger.ts)
+┣ 📂 dtos # Data Transfer Objects for request validation and response typing
+┣ 📂 entities # TypeORM database models (product.entity.ts)
+┣ 📂 routes # API route definitions (products.routes.ts)
+┣ 📂 services # Business logic and database interactions (products.service.ts)
+┣ 📂 shared # Shared resources, middlewares, and utility functions
+┣ 🗄️ furniro.sqlite # Local SQLite database file
+┗ 📜 server.ts # Main server entry point and application setup
+┗ 📜 db.json # Products info used on db seeding
+
+📦 front-end
+┣ 📂 src
+┣ 📂 api # API integration and HTTP client configuration
+┣ 📂 assets # Static design images and visual assets from the frontend design
+┣ 📂 components # Reusable UI sections (Header, Footer, ProductCard, etc.)
+┣ 📂 pages # Page-level components (Cart, Home, ProductDetail, Shop)
+┣ 📂 store # Global state management
+┣ 📂 types # Type definitions and interfaces
+┣ 📂 utils # Helper functions and formatters
+┣ 📜 App.tsx # Main application routing and layout
+┣ 📜 index.css # Global styles
+┗ 📜 main.tsx # Main React application entry point
+```
+
+---
+
+## The Team
 
 This project was brought to life by a dedicated group:
 
-- Alana Agne Brandão Rocha
+- Alana Ágne Brandão Rocha
 - Brunno Felipe Bezerra
 - Gustavo Siqueira De Lima
 - Lucas Folharini
@@ -132,6 +173,10 @@ This project was brought to life by a dedicated group:
 
 ---
 
-##  Acknowledgements
+Workflow & Organization: We adopted a structured Git Flow using Conventional Commits for clear version control, while all project tasks and progress were managed through a board on Trello https://trello.com/b/ukK2h8hz/desafio-2-fellowship-squad-4.
+
+---
+
+## Acknowledgements
 
 Developed with dedication for the **Compass UOL Fellowship Program**.
