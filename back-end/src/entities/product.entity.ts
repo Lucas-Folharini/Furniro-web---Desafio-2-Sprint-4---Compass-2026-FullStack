@@ -3,6 +3,12 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 export interface ProductColor {
   name: string;
   value: string;
+  priceModifier: number;
+}
+
+export interface ProductSize {
+  name: string;
+  priceModifier: number;
 }
 
 @Entity('products')
@@ -41,7 +47,7 @@ export class Product {
   colors: ProductColor[];
 
   @Column({ type: 'simple-json', default: '[]' })
-  sizes: string[];
+  sizes: ProductSize[];
 
   @Column({ type: 'text' })
   description: string;

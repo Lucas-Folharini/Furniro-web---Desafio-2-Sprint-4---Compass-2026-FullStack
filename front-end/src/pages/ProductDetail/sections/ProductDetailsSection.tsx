@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { getProduct } from "@api/products";
-import type { Product } from "@app-types/product";
+import type { Product, ProductSize, ProductColor } from "@app-types/product";
+import { formatPrice } from "@utils/formatPrice";
 
 import facebookIcon from "@assets/facebook.svg";
 import linkedinIcon from "@assets/linkedin.svg";
@@ -11,15 +12,23 @@ import starIcon from "@assets/star.svg";
 
 import { useCartStore } from "../../../store/useCartStore";
 
+const parsePrice = (priceStr: string) => {
+  if (!priceStr) return 0;
+  return parseInt(priceStr.replace(/\D/g, ""), 10) || 0;
+};
+
 export function ProductDetailsSection() {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
 
   const [selectedImage, setSelectedImage] = useState<string>("");
-  const [selectedSize, setSelectedSize] = useState<string>("");
-  const [selectedColor, setSelectedColor] = useState<string>("");
+  
+  const [selectedSize, setSelectedSize] = useState<ProductSize | null>(null);
+  const [selectedColor, setSelectedColor] = useState<ProductColor | null>(null);
   const [quantity, setQuantity] = useState<number>(1);
+
+  const addItem = useCartStore((state) => state.addItem);
 
   useEffect(() => {
     async function fetchProduct() {
@@ -33,8 +42,8 @@ export function ProductDetailsSection() {
         const gallery = data.gallery?.length ? data.gallery : [data.image];
         setSelectedImage(gallery[0] || "");
 
-        if (data.sizes?.length) setSelectedSize(data.sizes[0]);
-        if (data.colors?.length) setSelectedColor(data.colors[0].value);
+        if (data.sizes?.length > 0) setSelectedSize(data.sizes[0]);
+        if (data.colors?.length > 0) setSelectedColor(data.colors[0]);
       } catch (error) {
         console.error("Erro ao carregar produto:", error);
       } finally {
@@ -45,12 +54,29 @@ export function ProductDetailsSection() {
     fetchProduct();
   }, [id]);
 
-  const addItem = useCartStore((state) => state.addItem);
+  const finalDisplayPrice = useMemo(() => {
+    if (!product) return "";
+    
+    const basePriceNum = parsePrice(product.price);
+    
+    const sizeModifier = selectedSize?.priceModifier || 0;
+    const colorModifier = selectedColor?.priceModifier || 0;
+    
+    const totalRaw = basePriceNum + sizeModifier + colorModifier;
+    
+    return formatPrice(totalRaw);
+  }, [product, selectedSize, selectedColor]);
 
   const handleAddToCart = () => {
     if (!product) return;
 
-    addItem(product, quantity);
+    const productToCart: Product = {
+      ...product,
+      price: finalDisplayPrice
+    };
+
+    addItem(productToCart, quantity);
+    
     toast.success(`${quantity}x ${product.name} added to cart!`, {
       style: { background: "#2EC1AC", color: "#fff" },
       iconTheme: { primary: "#fff", secondary: "#2EC1AC" },
@@ -73,15 +99,13 @@ export function ProductDetailsSection() {
     );
   }
 
-  const productGallery = product.gallery?.length
-    ? product.gallery
-    : [product.image];
-
+  const productGallery = product.gallery?.length ? product.gallery : [product.image];
   const displayTags = [product.category, "Home", "Shop"];
 
   return (
     <section className="w-full max-w-[1440px] mx-auto px-4 md:px-12 lg:px-[99px] py-9 font-poppins">
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-[105px]">
+        
         <div className="flex flex-col-reverse sm:flex-row gap-8 shrink-0">
           <div className="flex sm:flex-col gap-4">
             {productGallery.map((img, index) => (
@@ -99,8 +123,7 @@ export function ProductDetailsSection() {
                   alt={`${product.name} thumb ${index + 1}`}
                   className="max-w-full max-h-full object-contain"
                   onError={(e) => {
-                    e.currentTarget.src =
-                      "https://via.placeholder.com/76x80/F9F1E7/9F9F9F?text=Thumb";
+                    e.currentTarget.src = "https://via.placeholder.com/76x80/F9F1E7/9F9F9F?text=Thumb";
                   }}
                 />
               </button>
@@ -121,8 +144,7 @@ export function ProductDetailsSection() {
               alt={product.name}
               className="max-w-full max-h-full object-contain transition-all duration-300"
               onError={(e) => {
-                e.currentTarget.src =
-                  "https://via.placeholder.com/481x500/F9F1E7/9F9F9F?text=Produto";
+                e.currentTarget.src = "https://via.placeholder.com/481x500/F9F1E7/9F9F9F?text=Produto";
               }}
             />
           </div>
@@ -135,7 +157,7 @@ export function ProductDetailsSection() {
 
           <div className="flex items-center gap-3 mt-1">
             <p className="text-[24px] font-medium text-[#9F9F9F]">
-              {product.price}
+              {finalDisplayPrice}
             </p>
             {product.oldPrice && (
               <span className="text-[18px] text-[#B0B0B0] line-through">
@@ -147,20 +169,11 @@ export function ProductDetailsSection() {
           <div className="flex items-center gap-4 mt-3">
             <div className="flex items-center gap-1">
               {[...Array(5)].map((_, i) => (
-                <img
-                  key={i}
-                  src={starIcon}
-                  alt="Star rating"
-                  className="w-5 h-5"
-                />
+                <img key={i} src={starIcon} alt="Star rating" className="w-5 h-5" />
               ))}
             </div>
-
             <div className="w-[1px] h-[37px] bg-[#9F9F9F]" />
-
-            <span className="text-[13px] text-[#9F9F9F]">
-              5 Customer Review
-            </span>
+            <span className="text-[13px] text-[#9F9F9F]">5 Customer Review</span>
           </div>
 
           <p className="text-[13px] font-normal text-black leading-[20px] max-w-[424px] mt-4">
@@ -169,21 +182,19 @@ export function ProductDetailsSection() {
 
           {product.sizes?.length > 0 && (
             <div className="mt-6">
-              <span className="text-[14px] font-normal text-[#9F9F9F] block mb-3">
-                Size
-              </span>
+              <span className="text-[14px] font-normal text-[#9F9F9F] block mb-3">Size</span>
               <div className="flex items-center gap-3">
-                {product.sizes.map((size) => (
+                {product.sizes.map((sizeObj) => (
                   <button
-                    key={size}
-                    onClick={() => setSelectedSize(size)}
+                    key={sizeObj.name}
+                    onClick={() => setSelectedSize(sizeObj)}
                     className={`w-[30px] h-[30px] rounded-[5px] text-[13px] flex items-center justify-center transition-colors ${
-                      selectedSize === size
+                      selectedSize?.name === sizeObj.name
                         ? "bg-[#B88E2F] text-white"
                         : "bg-[#F9F1E7] text-black hover:bg-[#e8dbce]"
                     }`}
                   >
-                    {size}
+                    {sizeObj.name}
                   </button>
                 ))}
               </div>
@@ -192,18 +203,16 @@ export function ProductDetailsSection() {
 
           {product.colors?.length > 0 && (
             <div className="mt-5">
-              <span className="text-[14px] font-normal text-[#9F9F9F] block mb-3">
-                Color
-              </span>
+              <span className="text-[14px] font-normal text-[#9F9F9F] block mb-3">Color</span>
               <div className="flex items-center gap-4">
-                {product.colors.map((color) => (
+                {product.colors.map((colorObj) => (
                   <button
-                    key={color.name}
-                    title={color.name}
-                    onClick={() => setSelectedColor(color.value)}
-                    style={{ backgroundColor: color.value }}
+                    key={colorObj.name}
+                    title={colorObj.name}
+                    onClick={() => setSelectedColor(colorObj)}
+                    style={{ backgroundColor: colorObj.value }}
                     className={`w-[30px] h-[30px] rounded-full transition-transform border border-black/10 ${
-                      selectedColor === color.value
+                      selectedColor?.name === colorObj.name
                         ? "ring-2 ring-offset-2 ring-[#B88E2F] scale-105"
                         : "hover:scale-105"
                     }`}
