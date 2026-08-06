@@ -1,6 +1,10 @@
-import type { PaginatedResponse } from "../types/pagination";
-import type { ApiProduct, Product, ProductQueryParams } from "../types/product";
-import { formatPrice } from "../utils/formatPrice";
+import type { PaginatedResponse } from "@app-types/pagination";
+import type {
+  ApiProduct,
+  Product,
+  ProductQueryParams,
+} from "@app-types/product";
+import { formatPrice } from "@utils/formatPrice";
 import { API_BASE_URL, apiFetch } from "./http";
 
 export function buildImageUrl(path: string) {

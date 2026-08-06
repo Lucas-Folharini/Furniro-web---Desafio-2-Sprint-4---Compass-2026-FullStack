@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { buildImageUrl, getProduct } from "../../../api/products";
-import type { Product } from "../../../types/product";
+import { buildImageUrl, getProduct } from "@api/products";
+import type { Product } from "@app-types/product";
 
 export function ProductTabsSection() {
   const { id } = useParams<{ id: string }>();

@@ -1,6 +1,6 @@
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-import type { Product } from '../types/product';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import type { Product } from "@app-types/product";
 
 export interface CartItem extends Product {
   quantity: number;
@@ -21,14 +21,16 @@ export const useCartStore = create<CartState>()(
 
       addItem: (product, quantity = 1) => {
         const currentItems = get().items;
-        const existingItem = currentItems.find((item) => item.id === product.id);
+        const existingItem = currentItems.find(
+          (item) => item.id === product.id,
+        );
 
         if (existingItem) {
           set({
             items: currentItems.map((item) =>
               item.id === product.id
                 ? { ...item, quantity: item.quantity + quantity }
-                : item
+                : item,
             ),
           });
         } else {
@@ -45,7 +47,7 @@ export const useCartStore = create<CartState>()(
       updateQuantity: (productId, quantity) => {
         set({
           items: get().items.map((item) =>
-            item.id === productId ? { ...item, quantity } : item
+            item.id === productId ? { ...item, quantity } : item,
           ),
         });
       },
@@ -55,7 +57,7 @@ export const useCartStore = create<CartState>()(
       },
     }),
     {
-      name: 'shopping-cart-storage', // Nome que ficará no LocalStorage
-    }
-  )
+      name: "shopping-cart-storage", // Nome que ficará no LocalStorage
+    },
+  ),
 );

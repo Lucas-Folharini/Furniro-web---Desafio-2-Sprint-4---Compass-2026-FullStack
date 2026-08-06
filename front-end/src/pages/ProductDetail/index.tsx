@@ -4,7 +4,7 @@ import { ProductBreadcrumb } from "./sections/ProductBreadcrumb";
 import { ProductDetailsSection } from "./sections/ProductDetailsSection";
 import { ProductTabsSection } from "./sections/ProductTabsSection";
 import { RelatedProductsSection } from "./sections/RelatedProductsSection";
-import { getProduct } from "../../api/products";
+import { getProduct } from "@api/products";
 
 export function ProductDetail() {
   const { id } = useParams<{ id: string }>();
