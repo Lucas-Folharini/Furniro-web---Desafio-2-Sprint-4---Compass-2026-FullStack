@@ -4,14 +4,11 @@ import { FeaturesSection } from "../Shop/sections/FeaturesSection";
 import trashIcon from "../../assets/trashIcon.svg"; 
 import { Banner } from "../../components/PageBanner";
 import toast from "react-hot-toast";
+import { formatPrice } from "../../utils/formatPrice";
 
 
 const parsePrice = (priceStr: string) => {
   return parseInt(priceStr.replace(/\D/g, ""), 10) || 0;
-};
-
-const formatPrice = (price: number) => {
-  return `Rp ${price.toLocaleString("id-ID").replace(/,/g, ".")}`;
 };
 
 export function Cart() {

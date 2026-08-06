@@ -1,17 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { FilterBar } from "./FilterBar";
-import { ProductCard, type Product } from "../../../components/ProductCard"; 
-
-interface ShopProduct extends Product {
-  category: string;
-  sku?: string;
-}
+import { getProducts } from "../../../api/products";
+import { ProductCard } from "../../../components/ProductCard";
+import type { Product } from "../../../types/product";
 
 interface ProductsSectionProps {
   category: string;
 }
-
-const API_URL = "http://localhost:3000/products";
 
 const normalizePrice = (price: string) => {
   const parsed = Number(price.replace(/[^\d]/g, ""));
@@ -30,7 +25,7 @@ const getSortValue = (sortBy: string) => {
 };
 
 export function ProductsSection({ category }: ProductsSectionProps) {
-  const [allProducts, setAllProducts] = useState<ShopProduct[]>([]);
+  const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(16);
   const [sortBy, setSortBy] = useState("Default");
@@ -39,32 +34,20 @@ export function ProductsSection({ category }: ProductsSectionProps) {
   const selectedCategory = category?.toLowerCase() || "";
 
   useEffect(() => {
-    const controller = new AbortController();
-
     const fetchProducts = async () => {
       try {
         setIsLoading(true);
 
-        const response = await fetch(API_URL, {
-          signal: controller.signal,
-        });
-
-        const payload = (await response.json()) as ShopProduct[] | { data?: ShopProduct[] };
-        const data = Array.isArray(payload) ? payload : payload.data ?? [];
-
-        setAllProducts(data);
+        const response = await getProducts({ limit: 100 });
+        setAllProducts(response.data);
       } catch (error) {
-        if ((error as Error).name !== "AbortError") {
-          console.error("Erro ao buscar produtos da Shop:", error);
-        }
+        console.error("Erro ao buscar produtos da Shop:", error);
       } finally {
         setIsLoading(false);
       }
     };
 
     fetchProducts();
-
-    return () => controller.abort();
   }, []);
 
   const filteredProducts = useMemo(() => {
@@ -146,7 +129,9 @@ export function ProductsSection({ category }: ProductsSectionProps) {
             })}
 
             <button
-              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
               disabled={currentPage >= totalPages}
               className="w-[98px] h-[60px] rounded-[10px] bg-[#F9F1E7] text-black font-poppins text-[20px] font-light leading-none flex items-center justify-center cursor-pointer hover:bg-[#B88E2F] hover:text-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
