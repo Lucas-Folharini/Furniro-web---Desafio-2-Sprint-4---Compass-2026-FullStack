@@ -52,12 +52,13 @@ export function Header() {
               Shop
             </Link>
 
-            <Link
-              to="/about"
-              className="hover:text-[#B88E2F] transition-colors"
+            <a
+              href="#"
+              onClick={(e) => e.preventDefault()}
+              className="hover:text-[#B88E2F] transition-colors cursor-pointer"
             >
               About
-            </Link>
+            </a>
 
             <Link
               to="/contact"
@@ -117,9 +118,7 @@ export function Header() {
       <div
         onClick={closeMenu}
         className={`fixed inset-0 bg-black/40 z-[998] transition-opacity duration-300 md:hidden ${
-          isMenuOpen
-            ? "opacity-100 visible"
-            : "opacity-0 invisible"
+          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       />
 
@@ -157,13 +156,16 @@ export function Header() {
             Shop
           </Link>
 
-          <Link
-            to="/about"
-            onClick={closeMenu}
-            className="hover:text-[#B88E2F]"
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              closeMenu();
+            }}
+            className="hover:text-[#B88E2F] cursor-pointer"
           >
             About
-          </Link>
+          </a>
 
           <Link
             to="/contact"
@@ -180,7 +182,7 @@ export function Header() {
             onClick={closeMenu}
             className="hover:text-[#B88E2F]"
           >
-            Carrinho
+            Cart
           </Link>
 
           <button className="text-left hover:text-[#B88E2F]">
