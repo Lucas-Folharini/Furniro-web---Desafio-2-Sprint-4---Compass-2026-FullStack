@@ -12,7 +12,7 @@ export function OurProducts() {
     async function fetchProducts() {
       try {
         setIsLoading(true);
-        const response = await getProducts({ limit: 4 });
+        const response = await getProducts({ limit: 8 });
         setProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
