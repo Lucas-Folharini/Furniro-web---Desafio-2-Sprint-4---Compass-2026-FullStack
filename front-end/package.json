@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "server": "json-server --watch db.json --port 3000",
-    "build": "tsc -b && vite build",
+    "dev": "node init && vite",
+    "server": "json-server --watch ../back-end/db.json --port 3000 --static ../back-end/public",
+    "build": "node init && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
