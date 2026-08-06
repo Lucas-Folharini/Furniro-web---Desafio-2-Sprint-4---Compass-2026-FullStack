@@ -1,4 +1,4 @@
-import { FindOptionsWhere, ILike, LessThanOrEqual, MoreThanOrEqual, Repository } from 'typeorm';
+import { FindOptionsWhere, Like, LessThanOrEqual, MoreThanOrEqual, Repository } from 'typeorm';
 import { PaginationDto } from '../dtos/pagination.dto';
 import { ProductQueryDto } from '../dtos/product-query.dto';
 import { Product } from '../entities/product.entity';
@@ -13,8 +13,8 @@ export class ProductsService {
 
     const where: FindOptionsWhere<Product> = {};
 
-    if (category) where.category = ILike(`%${category}%`);
-    if (search) where.name = ILike(`%${search}%`);
+    if (category) where.category = Like(`%${category}%`);
+    if (search) where.name = Like(`%${search}%`);
     if (minPrice !== undefined) where.price = MoreThanOrEqual(minPrice);
     if (maxPrice !== undefined) where.price = LessThanOrEqual(maxPrice);
 
