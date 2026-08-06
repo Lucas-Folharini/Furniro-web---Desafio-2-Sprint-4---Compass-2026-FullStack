@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
-import facebookIcon from "../assets/facebook.svg";
-import instagramIcon from "../assets/instagram.svg";
-import twitterIcon from "../assets/twitter.svg";
-import linkedinIcon from "../assets/linkedin.svg";
+import facebookIcon from "@assets/facebook.svg";
+import instagramIcon from "@assets/instagram.svg";
+import twitterIcon from "@assets/twitter.svg";
+import linkedinIcon from "@assets/linkedin.svg";
 
 export function Footer() {
   const [email, setEmail] = useState("");

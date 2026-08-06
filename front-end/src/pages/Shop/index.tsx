@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 
-import { Banner } from "../../components/PageBanner";
-import { FeaturesSection } from "../../components/FeaturesSection";
+import { Banner } from "@components/PageBanner";
+import { FeaturesSection } from "@components/FeaturesSection";
 
 import { ProductsSection } from "./sections/ProductsSection";
 

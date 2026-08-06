@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import arrowIcon from "../../../assets/arrow.svg"; 
+import arrowIcon from "@assets/arrow.svg"; 
 interface ProductBreadcrumbProps {
   productName?: string;
 }

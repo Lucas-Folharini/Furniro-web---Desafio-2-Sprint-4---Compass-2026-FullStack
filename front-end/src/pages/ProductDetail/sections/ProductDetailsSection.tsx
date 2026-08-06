@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
-import { getProduct } from "../../../api/products";
-import type { Product } from "../../../types/product";
+import { getProduct } from "@api/products";
+import type { Product } from "@app-types/product";
 
-import facebookIcon from "../../../assets/facebook.svg";
-import linkedinIcon from "../../../assets/linkedin.svg";
-import twitterIcon from "../../../assets/twitter.svg";
-import starIcon from "../../../assets/star.svg";
+import facebookIcon from "@assets/facebook.svg";
+import linkedinIcon from "@assets/linkedin.svg";
+import twitterIcon from "@assets/twitter.svg";
+import starIcon from "@assets/star.svg";
 
 export function ProductDetailsSection() {
   const { id } = useParams<{ id: string }>();

@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { FilterBar } from "./FilterBar";
-import { getProducts } from "../../../api/products";
-import { ProductCard } from "../../../components/ProductCard";
-import type { Product } from "../../../types/product";
+import { getProducts } from "@api/products";
+import { ProductCard } from "@components/ProductCard";
+import type { Product } from "@app-types/product";
 
 interface ProductsSectionProps {
   category: string;
@@ -52,7 +52,9 @@ export function ProductsSection({ category }: ProductsSectionProps) {
 
   const filteredProducts = useMemo(() => {
     const categoryProducts = selectedCategory
-      ? allProducts.filter((product) => product.category?.toLowerCase() === selectedCategory)
+      ? allProducts.filter(
+          (product) => product.category?.toLowerCase() === selectedCategory,
+        )
       : allProducts;
 
     const sortValue = getSortValue(sortBy);

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getProducts } from "../../../api/products";
-import { ProductCard } from "../../../components/ProductCard";
-import type { Product } from "../../../types/product";
+import { getProducts } from "@api/products";
+import { ProductCard } from "@components/ProductCard";
+import type { Product } from "@app-types/product";
 
 export function RelatedProductsSection() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -24,14 +24,16 @@ export function RelatedProductsSection() {
   return (
     <section className="w-full pt-[55px] pb-[88px] bg-white font-poppins border-t border-[#D9D9D9]">
       <div className="w-full max-w-[1440px] mx-auto px-4 md:px-12 lg:px-[99px] flex flex-col items-center">
-        
         <h2 className="text-[36px] font-medium text-black leading-[100%] text-center mb-[26px]">
           Related Products
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[32px] w-full mb-[44px]">
           {products.map((product) => (
-            <div key={product.id} className="w-full max-w-[285px] mx-auto flex flex-col [&>a]:w-full [&>a]:h-full">
+            <div
+              key={product.id}
+              className="w-full max-w-[285px] mx-auto flex flex-col [&>a]:w-full [&>a]:h-full"
+            >
               <ProductCard product={product} />
             </div>
           ))}
@@ -43,7 +45,6 @@ export function RelatedProductsSection() {
         >
           Show More
         </button>
-
       </div>
     </section>
   );

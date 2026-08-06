@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import bannerImg from "../assets/banner_shop.png";
+import bannerImg from "@assets/banner_shop.png";
 
 interface BannerProps {
   title: string;

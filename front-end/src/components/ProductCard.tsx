@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
-import { useCartStore } from "../store/useCartStore";
-import type { Product } from "../types/product";
+import { useCartStore } from "@store/useCartStore";
+import type { Product } from "@app-types/product";
 
 interface ProductCardProps {
   product: Product;

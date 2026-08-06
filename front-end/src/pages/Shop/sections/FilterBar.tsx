@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import filterIcon from "../../../assets/filter.svg";
-import ballsIcon from "../../../assets/balls.svg";
-import framesIcon from "../../../assets/frames.svg";
+import filterIcon from "@assets/filter.svg";
+import ballsIcon from "@assets/balls.svg";
+import framesIcon from "@assets/frames.svg";
 
 interface FilterBarProps {
   currentPage?: number;

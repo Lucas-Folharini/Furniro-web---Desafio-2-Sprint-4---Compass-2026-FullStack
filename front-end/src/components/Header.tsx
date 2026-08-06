@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.svg";
-import iconCart from "../assets/iconCart.svg";
-import iconProfile from "../assets/iconProfile.svg";
+import logo from "@assets/logo.svg";
+import iconCart from "@assets/iconCart.svg";
+import iconProfile from "@assets/iconProfile.svg";
 
 export function Header() {
   return (

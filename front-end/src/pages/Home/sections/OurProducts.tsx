@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getProducts } from "../../../api/products";
-import { ProductCard } from "../../../components/ProductCard";
-import type { Product } from "../../../types/product";
+import { getProducts } from "@api/products";
+import { ProductCard } from "@components/ProductCard";
+import type { Product } from "@app-types/product";
 
 export function OurProducts() {
   const [products, setProducts] = useState<Product[]>([]);
