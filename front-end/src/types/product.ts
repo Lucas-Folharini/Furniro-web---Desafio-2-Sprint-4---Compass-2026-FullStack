@@ -15,6 +15,12 @@ export interface ProductQueryParams extends PaginationParams {
 export interface ProductColor {
   name: string;
   value: string;
+  priceModifier: number;
+}
+
+export interface ProductSize {
+  name: string;
+  priceModifier: number; 
 }
 
 export interface ApiProduct {
@@ -31,7 +37,7 @@ export interface ApiProduct {
   description: string;
   gallery: string[];
   colors: ProductColor[];
-  sizes: string[];
+  sizes: ProductSize[];
   badge: string | null;
   badgeColor: string | null;
   complementaryDescription: string;
@@ -49,9 +55,10 @@ export interface Product {
   image: string;
   gallery: string[];
   colors: ProductColor[];
-  sizes: string[];
+  sizes: ProductSize[];
   badge: string | null;
   badgeColor: string | null;
   complementaryDescription: string;
   additionalInfo: string;
+  rawPrice?: number; 
 }
