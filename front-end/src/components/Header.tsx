@@ -186,7 +186,7 @@ export function Header() {
           </Link>
 
           <button className="text-left hover:text-[#B88E2F]">
-            Perfil
+            Profile
           </button>
         </nav>
       </aside>
