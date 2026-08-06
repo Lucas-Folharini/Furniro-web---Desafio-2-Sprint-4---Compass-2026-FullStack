@@ -1,13 +1,31 @@
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
-import { BrowseRange } from "./pages/Home/sections/BrowseRange";
-import { Forniture } from "./pages/Home/sections/Forniture";
-import { Hero } from "./pages/Home/sections/Hero";
-import { OurProducts } from "./pages/Home/sections/OurProducts";
-import { Rooms } from "./pages/Home/sections/Rooms";
+import { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
+import { Home } from "./pages/Home";
+import { Shop } from "./pages/Shop";
+import { ProductDetail } from "./pages/ProductDetail";
+import { Cart } from "./pages/Cart";
+
+import { useCartStore } from "./store/useCartStore";
+
 function App() {
+  useEffect(() => {
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === "shopping-cart-storage") {
+        useCartStore.persist.rehydrate();
+      }
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col font-poppins">
       <Toaster
@@ -20,13 +38,15 @@ function App() {
 
       <Header />
 
-      <main>
-        <Hero />
-        <BrowseRange />
-        <OurProducts />
-        <Rooms />
-        <Forniture />
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/shop/:category" element={<Shop />} />
+
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
 
       <Footer />
     </div>
