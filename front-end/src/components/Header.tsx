@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import logo from "@assets/logo.svg";
 import iconCart from "@assets/iconCart.svg";
 import iconProfile from "@assets/iconProfile.svg";
+import { useCartStore } from "@store/useCartStore";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const hasCartItems = useCartStore((state) => state.items.length > 0);
 
   function closeMenu() {
     setIsMenuOpen(false);
@@ -78,12 +80,16 @@ export function Header() {
               className="w-6 lg:w-auto cursor-pointer hover:opacity-75 transition-opacity"
             />
 
-            <Link to="/cart">
+            <Link to="/cart" className="relative">
               <img
                 src={iconCart}
                 alt="Carrinho"
                 className="w-6 lg:w-auto cursor-pointer hover:opacity-75 transition-opacity"
               />
+
+              {hasCartItems && (
+                <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-red-500 ring-2 ring-white" />
+              )}
             </Link>
 
             {/* =========================================
@@ -180,9 +186,12 @@ export function Header() {
           <Link
             to="/cart"
             onClick={closeMenu}
-            className="hover:text-[#B88E2F]"
+            className="relative w-fit hover:text-[#B88E2F]"
           >
             Cart
+            {hasCartItems && (
+              <span className="absolute -right-4 top-1 h-2.5 w-2.5 rounded-full bg-red-500" />
+            )}
           </Link>
 
           <button className="text-left hover:text-[#B88E2F]">
