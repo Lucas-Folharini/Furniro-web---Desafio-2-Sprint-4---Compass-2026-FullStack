@@ -1,16 +1,22 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+
+import facebookIcon from "@assets/facebook.svg";
+import instagramIcon from "@assets/instagram.svg";
+import twitterIcon from "@assets/twitter.svg";
+import linkedinIcon from "@assets/linkedin.svg";
 
 export function Footer() {
   const [email, setEmail] = useState("");
 
-  const handleSubscribe = (e: React.SubmitEvent<HTMLFormElement>) => {
-    e.preventDefault(); // n recarrega a pagina
+  const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!email.trim()) {
-      toast.error("Por favor, insira seu endereço de e-mail.", {
+      toast.error("Please enter your email address.", {
         style: { background: "#E97171", color: "#fff" },
         iconTheme: { primary: "#fff", secondary: "#E97171" },
       });
@@ -18,14 +24,14 @@ export function Footer() {
     }
 
     if (!emailRegex.test(email)) {
-      toast.error("Por favor, insira um e-mail válido.", {
+      toast.error("Please enter a valid email address.", {
         style: { background: "#E97171", color: "#fff" },
         iconTheme: { primary: "#fff", secondary: "#E97171" },
       });
       return;
     }
 
-    toast.success("Inscrito com sucesso!", {
+    toast.success("Successfully subscribed!", {
       style: { background: "#2EC1AC", color: "#fff" },
       iconTheme: { primary: "#fff", secondary: "#2EC1AC" },
     });
@@ -36,9 +42,6 @@ export function Footer() {
   return (
     <footer className="w-full bg-white flex justify-center pt-16 pb-8 border-t border-gray-200">
       
-      {/* =========================================
-          CONTAINER PRINCIPAL
-          ========================================= */}
       <div className="w-full max-w-[1183px] px-5 lg:px-0 flex flex-col">
         
         <div className="flex flex-col lg:flex-row justify-between gap-10 mb-12 flex-wrap">
@@ -57,33 +60,36 @@ export function Footer() {
                 href="https://www.facebook.com/compass.uol/?locale=pt_BR"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center font-bold text-sm hover:bg-gray-100 cursor-pointer transition-colors"
+                className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-gray-100 cursor-pointer transition-colors"
               >
-                f
+                <img src={facebookIcon} alt="Facebook" className="w-5 h-5 object-contain" />
               </a>
+
               <a
                 href="https://www.instagram.com/compass.uol/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center font-bold text-sm hover:bg-gray-100 cursor-pointer transition-colors"
+                className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-gray-100 cursor-pointer transition-colors"
               >
-                ig
+                <img src={instagramIcon} alt="Instagram" className="w-5 h-5 object-contain" />
               </a>
+
               <a
                 href="https://x.com/compassuol"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center font-bold text-sm hover:bg-gray-100 cursor-pointer transition-colors"
+                className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-gray-100 cursor-pointer transition-colors"
               >
-                tw
+                <img src={twitterIcon} alt="Twitter" className="w-5 h-5 object-contain" />
               </a>
+
               <a
                 href="https://br.linkedin.com/company/compass-uol?original_referer=https%3A%2F%2Fwww.google.com%2F"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center font-bold text-sm hover:bg-gray-100 cursor-pointer transition-colors"
+                className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-gray-100 cursor-pointer transition-colors"
               >
-                in
+                <img src={linkedinIcon} alt="LinkedIn" className="w-5 h-5 object-contain" />
               </a>
             </div>
           </div>
@@ -91,18 +97,18 @@ export function Footer() {
           <div className="flex flex-col gap-8">
             <h3 className="font-poppins font-medium text-gray-400">Links</h3>
             <nav className="flex flex-col gap-6 font-poppins font-medium text-black">
-              <a href="#" className="hover:text-[#B88E2F] transition-colors">
+              <Link to="/" className="hover:text-[#B88E2F] transition-colors">
                 Home
-              </a>
-              <a href="#" className="hover:text-[#B88E2F] transition-colors">
+              </Link>
+              <Link to="/shop" className="hover:text-[#B88E2F] transition-colors">
                 Shop
-              </a>
-              <a href="#" className="hover:text-[#B88E2F] transition-colors">
+              </Link>
+              <a href="#" onClick={(e) => e.preventDefault()} className="hover:text-[#B88E2F] transition-colors cursor-pointer">
                 About
               </a>
-              <a href="#" className="hover:text-[#B88E2F] transition-colors">
+              <Link to="/contact" className="hover:text-[#B88E2F] transition-colors">
                 Contact
-              </a>
+              </Link>
             </nav>
           </div>
 
@@ -149,7 +155,7 @@ export function Footer() {
 
         <hr className="border-gray-200 mb-8" />
         <p className="font-poppins text-black text-base">
-          2023 furino. All rights reverved
+          2023 furino. All rights reserved
         </p>
       </div>
     </footer>
