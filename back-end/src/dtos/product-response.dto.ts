@@ -1,4 +1,4 @@
-import { Product, ProductColor } from '../entities/product.entity';
+import { Product, ProductColor, ProductSize } from '../entities/product.entity';
 
 export class ProductResponseDto {
   id: number;
@@ -14,7 +14,7 @@ export class ProductResponseDto {
   description: string;
   gallery: string[];
   colors: ProductColor[];
-  sizes: string[];
+  sizes: ProductSize[];
   badge: string | null;
   badgeColor: string | null;
   complementaryDescription: string;
@@ -29,8 +29,8 @@ export class ProductResponseDto {
 
     return {
       ...product,
-      price: parsedPrice, // Sobrescreve a string do banco com o número
-      discount: parsedDiscount, // Sobrescreve a string do banco com o número
+      price: parsedPrice,
+      discount: parsedDiscount,
       badge: hasDiscount ? `-${parsedDiscount}%` : product.isNew ? 'New' : null,
       badgeColor: hasDiscount ? '#E97171' : product.isNew ? '#2EC1AC' : null,
       finalPrice: Number(discountPrice.toFixed(2))

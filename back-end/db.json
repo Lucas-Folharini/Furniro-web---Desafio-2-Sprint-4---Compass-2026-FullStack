@@ -14,11 +14,15 @@
       "complementaryDescription": "A comfortable chair with a contemporary silhouette, suitable for dining rooms and cafes.",
       "additionalInfo": "Structure: solid wood. Upholstery: polyester. Indoor use only.",
       "colors": [
-        { "name": "Beige", "value": "#F5F0E6" },
-        { "name": "Gray", "value": "#9CA3AF" },
-        { "name": "Black", "value": "#111827" }
+        { "name": "Beige", "value": "#F5F0E6", "priceModifier": 0 },
+        { "name": "Gray", "value": "#9CA3AF", "priceModifier": 0 },
+        { "name": "Black", "value": "#111827", "priceModifier": 150000 }
       ],
-      "sizes": ["S", "M", "L"],
+      "sizes": [
+        { "name": "S", "priceModifier": 0 },
+        { "name": "M", "priceModifier": 100000 },
+        { "name": "L", "priceModifier": 250000 }
+      ],
       "gallery": []
     },
     {
@@ -35,10 +39,12 @@
       "complementaryDescription": "A lightweight dining chair designed for everyday comfort.",
       "additionalInfo": "Structure: engineered wood. Maximum supported weight: 120 kg.",
       "colors": [
-        { "name": "White", "value": "#FFFFFF" },
-        { "name": "Beige", "value": "#F5F0E6" }
+        { "name": "White", "value": "#FFFFFF", "priceModifier": 0 },
+        { "name": "Beige", "value": "#F5F0E6", "priceModifier": 0 }
       ],
-      "sizes": ["M"],
+      "sizes": [
+        { "name": "M", "priceModifier": 0 }
+      ],
       "gallery": []
     },
     {
@@ -55,11 +61,14 @@
       "complementaryDescription": "A spacious sofa with deep seats and soft upholstery for a relaxed living room.",
       "additionalInfo": "Seats: 4. Structure: hardwood. Removable cushion covers.",
       "colors": [
-        { "name": "Gray", "value": "#9CA3AF" },
-        { "name": "Navy", "value": "#1E3A8A" },
-        { "name": "Beige", "value": "#F5F0E6" }
+        { "name": "Gray", "value": "#9CA3AF", "priceModifier": 0 },
+        { "name": "Navy", "value": "#1E3A8A", "priceModifier": 500000 },
+        { "name": "Beige", "value": "#F5F0E6", "priceModifier": 0 }
       ],
-      "sizes": ["L", "XL"],
+      "sizes": [
+        { "name": "L", "priceModifier": 0 },
+        { "name": "XL", "priceModifier": 1500000 }
+      ],
       "gallery": []
     },
     {
@@ -76,10 +85,12 @@
       "complementaryDescription": "Compact outdoor furniture for balconies, gardens and entertaining areas.",
       "additionalInfo": "Powder-coated steel. Weather-resistant finish. Set with 1 table and 2 stools.",
       "colors": [
-        { "name": "Black", "value": "#111827" },
-        { "name": "Green", "value": "#2EC1AC" }
+        { "name": "Black", "value": "#111827", "priceModifier": 0 },
+        { "name": "Green", "value": "#2EC1AC", "priceModifier": 0 }
       ],
-      "sizes": ["M"],
+      "sizes": [
+        { "name": "M", "priceModifier": 0 }
+      ],
       "gallery": []
     },
     {
@@ -96,10 +107,12 @@
       "complementaryDescription": "A warm bedside light with a minimalist profile.",
       "additionalInfo": "Voltage: bivolt. Bulb socket: E27. Bulb not included.",
       "colors": [
-        { "name": "Gold", "value": "#D4AF37" },
-        { "name": "Black", "value": "#111827" }
+        { "name": "Gold", "value": "#D4AF37", "priceModifier": 50000 },
+        { "name": "Black", "value": "#111827", "priceModifier": 0 }
       ],
-      "sizes": ["S"],
+      "sizes": [
+        { "name": "S", "priceModifier": 0 }
+      ],
       "gallery": []
     },
     {
@@ -116,11 +129,13 @@
       "complementaryDescription": "A simple ceramic mug for coffee, tea and decorative compositions.",
       "additionalInfo": "Capacity: 250 ml. Dishwasher and microwave safe.",
       "colors": [
-        { "name": "White", "value": "#FFFFFF" },
-        { "name": "Pink", "value": "#F9A8D4" },
-        { "name": "Blue", "value": "#60A5FA" }
+        { "name": "White", "value": "#FFFFFF", "priceModifier": 0 },
+        { "name": "Pink", "value": "#F9A8D4", "priceModifier": 0 },
+        { "name": "Blue", "value": "#60A5FA", "priceModifier": 0 }
       ],
-      "sizes": ["S"],
+      "sizes": [
+        { "name": "S", "priceModifier": 0 }
+      ],
       "gallery": []
     },
     {
@@ -137,10 +152,13 @@
       "complementaryDescription": "A coordinated bedroom set with soft fabrics and a playful look.",
       "additionalInfo": "Includes headboard, bed frame and two bedside tables. Mattress not included.",
       "colors": [
-        { "name": "Pink", "value": "#F9A8D4" },
-        { "name": "Beige", "value": "#F5F0E6" }
+        { "name": "Pink", "value": "#F9A8D4", "priceModifier": 0 },
+        { "name": "Beige", "value": "#F5F0E6", "priceModifier": 0 }
       ],
-      "sizes": ["queen", "king"],
+      "sizes": [
+        { "name": "queen", "priceModifier": 0 },
+        { "name": "king", "priceModifier": 2000000 }
+      ],
       "gallery": []
     },
     {
@@ -157,11 +175,14 @@
       "complementaryDescription": "A clean-lined planter made to complement modern interiors.",
       "additionalInfo": "Material: ceramic. Drainage hole included. Plant not included.",
       "colors": [
-        { "name": "White", "value": "#FFFFFF" },
-        { "name": "Black", "value": "#111827" },
-        { "name": "Terracotta", "value": "#C65A3A" }
+        { "name": "White", "value": "#FFFFFF", "priceModifier": 0 },
+        { "name": "Black", "value": "#111827", "priceModifier": 0 },
+        { "name": "Terracotta", "value": "#C65A3A", "priceModifier": 50000 }
       ],
-      "sizes": ["S", "M"],
+      "sizes": [
+        { "name": "S", "priceModifier": 0 },
+        { "name": "M", "priceModifier": 80000 }
+      ],
       "gallery": []
     }
   ]
