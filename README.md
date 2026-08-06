@@ -122,7 +122,8 @@ Open this URL in your browser to explore **Furniro**.
 
 API Documentation: The backend API is documented using Swagger UI, which can be accessed interactively at
 ```text
-http://localhost:3000/docs```
+http://localhost:3000/docs
+```
 
 ---
 
