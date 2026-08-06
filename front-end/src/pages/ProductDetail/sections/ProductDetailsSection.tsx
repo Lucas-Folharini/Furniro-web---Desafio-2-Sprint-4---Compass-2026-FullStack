@@ -1,40 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
+import { getProduct } from "../../../api/products";
+import type { Product } from "../../../types/product";
 
 import facebookIcon from "../../../assets/facebook.svg";
 import linkedinIcon from "../../../assets/linkedin.svg";
 import twitterIcon from "../../../assets/twitter.svg";
 import starIcon from "../../../assets/star.svg";
-
-const API_URL = "http://localhost:3000/products";
-const BASE_URL = "http://localhost:3000";
-
-export interface ColorOption {
-  name: string;
-  value: string;
-}
-
-export interface Product {
-  id: number | string;
-  name: string;
-  description: string;
-  price: string;
-  oldPrice?: string | null;
-  image: string;
-  badge?: string | null;
-  badgeColor?: string | null;
-  category: string;
-  sku: string;
-  discount?: number;
-  colors: ColorOption[];
-  sizes: string[];
-  gallery: string[];
-  complementaryDescription?: string;
-  additionalInfo?: string[];
-  reviewsCount?: number;
-  tags?: string[];
-}
 
 export function ProductDetailsSection() {
   const { id } = useParams<{ id: string }>();
@@ -51,8 +24,7 @@ export function ProductDetailsSection() {
       try {
         setLoading(true);
         const targetId = id || "1";
-        const response = await fetch(`${API_URL}/${targetId}`);
-        const data: Product = await response.json();
+        const data = await getProduct(targetId);
 
         setProduct(data);
 
@@ -83,7 +55,7 @@ export function ProductDetailsSection() {
   if (loading) {
     return (
       <div className="w-full max-w-[1440px] mx-auto px-4 lg:px-[99px] py-12 text-center text-[#9F9F9F]">
-        Carregando detalhes do produto...
+        Loading product details...
       </div>
     );
   }
@@ -91,25 +63,20 @@ export function ProductDetailsSection() {
   if (!product) {
     return (
       <div className="w-full max-w-[1440px] mx-auto px-4 lg:px-[99px] py-12 text-center text-red-500">
-        Produto não encontrado.
+        Product not found.
       </div>
     );
   }
 
-  const getImageUrl = (path: string) => {
-    if (!path) return "";
-    if (path.startsWith("http")) return path;
-    if (path.startsWith("/")) return `${BASE_URL}${path}`;
-    return `${BASE_URL}/${path}`;
-  };
+  const productGallery = product.gallery?.length
+    ? product.gallery
+    : [product.image];
 
-  const productGallery = product.gallery?.length ? product.gallery : [product.image];
-  const displayTags = product.tags || [product.category, "Home", "Shop"];
+  const displayTags = [product.category, "Home", "Shop"];
 
   return (
     <section className="w-full max-w-[1440px] mx-auto px-4 md:px-12 lg:px-[99px] py-9 font-poppins">
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-[105px]">
-        
         <div className="flex flex-col-reverse sm:flex-row gap-8 shrink-0">
           <div className="flex sm:flex-col gap-4">
             {productGallery.map((img, index) => (
@@ -123,11 +90,12 @@ export function ProductDetailsSection() {
                 }`}
               >
                 <img
-                  src={getImageUrl(img)}
+                  src={img}
                   alt={`${product.name} thumb ${index + 1}`}
                   className="max-w-full max-h-full object-contain"
                   onError={(e) => {
-                    e.currentTarget.src = "https://via.placeholder.com/76x80/F9F1E7/9F9F9F?text=Thumb";
+                    e.currentTarget.src =
+                      "https://via.placeholder.com/76x80/F9F1E7/9F9F9F?text=Thumb";
                   }}
                 />
               </button>
@@ -144,11 +112,12 @@ export function ProductDetailsSection() {
               </span>
             )}
             <img
-              src={getImageUrl(selectedImage)}
+              src={selectedImage}
               alt={product.name}
               className="max-w-full max-h-full object-contain transition-all duration-300"
               onError={(e) => {
-                e.currentTarget.src = "https://via.placeholder.com/481x500/F9F1E7/9F9F9F?text=Produto";
+                e.currentTarget.src =
+                  "https://via.placeholder.com/481x500/F9F1E7/9F9F9F?text=Produto";
               }}
             />
           </div>
@@ -185,7 +154,7 @@ export function ProductDetailsSection() {
             <div className="w-[1px] h-[37px] bg-[#9F9F9F]" />
 
             <span className="text-[13px] text-[#9F9F9F]">
-              {product.reviewsCount ?? 5} Customer Review
+              5 Customer Review
             </span>
           </div>
 
@@ -288,21 +257,31 @@ export function ProductDetailsSection() {
               <span className="w-[80px]">Share</span>
               <span>:</span>
               <div className="flex items-center gap-6 text-black ml-1">
-                <a href="https://www.facebook.com/compass.uol/?locale=pt_BR" className="hover:opacity-70 transition-opacity" title="Facebook">
+                <a
+                  href="https://www.facebook.com/compass.uol/?locale=pt_BR"
+                  className="hover:opacity-70 transition-opacity"
+                  title="Facebook"
+                >
                   <img src={facebookIcon} alt="Facebook" className="w-5 h-5" />
                 </a>
-                <a href="https://br.linkedin.com/company/compass-uol?original_referer=https%3A%2F%2Fwww.google.com%2F" className="hover:opacity-70 transition-opacity" title="LinkedIn">
+                <a
+                  href="https://br.linkedin.com/company/compass-uol?original_referer=https%3A%2F%2Fwww.google.com%2F"
+                  className="hover:opacity-70 transition-opacity"
+                  title="LinkedIn"
+                >
                   <img src={linkedinIcon} alt="LinkedIn" className="w-5 h-5" />
                 </a>
-                <a href="https://x.com/compassuol" className="hover:opacity-70 transition-opacity" title="Twitter">
+                <a
+                  href="https://x.com/compassuol"
+                  className="hover:opacity-70 transition-opacity"
+                  title="Twitter"
+                >
                   <img src={twitterIcon} alt="Twitter" className="w-5 h-5" />
                 </a>
               </div>
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );

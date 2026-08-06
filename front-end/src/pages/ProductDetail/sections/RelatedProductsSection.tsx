@@ -1,19 +1,18 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ProductCard } from "../../../components/ProductCard"; 
-
-const API_URL = "http://localhost:3000/products";
+import { getProducts } from "../../../api/products";
+import { ProductCard } from "../../../components/ProductCard";
+import type { Product } from "../../../types/product";
 
 export function RelatedProductsSection() {
-  const [products, setProducts] = useState<any[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchRelatedProducts() {
       try {
-        const response = await fetch(API_URL);
-        const data = await response.json();
-        setProducts(data.slice(0, 4));
+        const response = await getProducts({ limit: 4 });
+        setProducts(response.data);
       } catch (error) {
         console.error("Erro ao carregar produtos relacionados:", error);
       }

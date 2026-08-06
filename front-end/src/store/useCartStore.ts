@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import type { Product } from '../components/ProductCard';
+import type { Product } from '../types/product';
 
 export interface CartItem extends Product {
   quantity: number;
@@ -20,8 +20,6 @@ export const useCartStore = create<CartState>()(
       items: [],
 
       addItem: (product, quantity = 1) => {
-        console.log("Zustand recebeu o produto:", product.id, product.name);
-        console.log("Carrinho antes de adicionar:", get().items);
         const currentItems = get().items;
         const existingItem = currentItems.find((item) => item.id === product.id);
 
@@ -36,7 +34,6 @@ export const useCartStore = create<CartState>()(
         } else {
           set({ items: [...currentItems, { ...product, quantity }] });
         }
-        setTimeout(() => console.log("Carrinho depois de adicionar:", get().items), 0);
       },
 
       removeItem: (productId) => {

@@ -1,17 +1,7 @@
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useCartStore } from "../store/useCartStore";
-
-export interface Product {
-  id: number;
-  name: string;
-  description: string;
-  price: string;
-  oldPrice: string | null;
-  image: string;
-  badge: string | null;
-  badgeColor: string | null;
-}
+import type { Product } from "../types/product";
 
 interface ProductCardProps {
   product: Product;
@@ -22,7 +12,6 @@ export function ProductCard({ product }: ProductCardProps) {
   const addItem = useCartStore((state) => state.addItem);
 
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log("Produto clicado:", product.id, product.name);
     e.preventDefault();
     e.stopPropagation();
 

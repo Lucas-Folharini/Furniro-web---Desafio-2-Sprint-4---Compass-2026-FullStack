@@ -4,8 +4,7 @@ import { ProductBreadcrumb } from "./sections/ProductBreadcrumb";
 import { ProductDetailsSection } from "./sections/ProductDetailsSection";
 import { ProductTabsSection } from "./sections/ProductTabsSection";
 import { RelatedProductsSection } from "./sections/RelatedProductsSection";
-
-const API_URL = "http://localhost:3000/products";
+import { getProduct } from "../../api/products";
 
 export function ProductDetail() {
   const { id } = useParams<{ id: string }>();
@@ -15,8 +14,7 @@ export function ProductDetail() {
     async function fetchProductName() {
       try {
         const targetId = id || "1";
-        const response = await fetch(`${API_URL}/${targetId}`);
-        const data = await response.json();
+        const data = await getProduct(targetId);
         if (data?.name) {
           setProductName(data.name);
         }
