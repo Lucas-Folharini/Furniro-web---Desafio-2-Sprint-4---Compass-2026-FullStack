@@ -1,6 +1,7 @@
-import logo from "@assets/logo.svg";
-import iconCart from "@assets/iconCart.svg";
-import iconProfile from "@assets/iconProfile.svg";
+import { Link } from "react-router-dom";
+import logo from "../assets/logo.svg";
+import iconCart from "../assets/iconCart.svg";
+import iconProfile from "../assets/iconProfile.svg";
 
 export function Header() {
   return (
@@ -9,8 +10,8 @@ export function Header() {
         {/* =========================================
             LOGO E MARCA
             ========================================= */}
-        <a
-          href="#"
+        <Link
+          to="/"
           className="flex flex-1 items-center justify-start relative focus:outline-none"
         >
           <img
@@ -21,37 +22,37 @@ export function Header() {
           <span className="font-montserrat font-bold text-[28px] md:text-[34px] leading-none tracking-tight text-[#000000] lg:pl-[5px]">
             Furniro
           </span>
-        </a>
+        </Link>
 
         {/* =========================================
             CENTRO
             ========================================= */}
 
         <nav className="hidden md:flex flex-1 items-center justify-center gap-6 lg:gap-[75px] font-poppins font-medium text-[#000000] text-base">
-          <a
-            href="#"
+          <Link
+            to="/"
             className="hover:text-[#B88E2F] transition-colors whitespace-nowrap"
           >
             Home
-          </a>
-          <a
-            href="#shop"
+          </Link>
+          <Link
+            to="/shop"
             className="hover:text-[#B88E2F] transition-colors whitespace-nowrap"
           >
             Shop
-          </a>
-          <a
-            href="#about"
+          </Link>
+          <Link
+            to="/about"
             className="hover:text-[#B88E2F] transition-colors whitespace-nowrap"
           >
             About
-          </a>
-          <a
-            href="#contact"
+          </Link>
+          <Link
+            to="/contact"
             className="hover:text-[#B88E2F] transition-colors whitespace-nowrap"
           >
             Contact
-          </a>
+          </Link>
         </nav>
 
         {/* =========================================
@@ -63,11 +64,13 @@ export function Header() {
             alt="Icone Perfil"
             className="w-6 lg:w-auto h-auto cursor-pointer hover:opacity-75 transition-opacity"
           />
-          <img
-            src={iconCart}
-            alt="Icone Carrinho"
-            className="w-6 lg:w-auto h-auto cursor-pointer hover:opacity-75 transition-opacity"
-          />
+          <Link to="/cart">
+            <img
+              src={iconCart}
+              alt="Icone Carrinho"
+              className="w-6 lg:w-auto h-auto cursor-pointer hover:opacity-75 transition-opacity"
+            />
+          </Link>
 
           {/* qnd menor que md */}
           <button className="md:hidden flex items-center justify-center p-1 focus:outline-none hover:text-[#B88E2F] transition-colors">
