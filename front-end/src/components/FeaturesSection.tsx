@@ -1,7 +1,7 @@
-import trophyIcon from "../assets/trophy.svg";
-import guaranteeIcon from "../assets/guarantee.svg";
-import shippingIcon from "../assets/shipping.svg";
-import customerSupportIcon from "../assets/customer-support.svg";
+import trophyIcon from "@assets/trophy.svg";
+import guaranteeIcon from "@assets/guarantee.svg";
+import shippingIcon from "@assets/shipping.svg";
+import customerSupportIcon from "@assets/customer-support.svg";
 
 interface Feature {
   id: number;

@@ -1,6 +1,6 @@
-import diningImg from "../../../assets/dining-range.png";
-import livingImg from "../../../assets/living-range.png";
-import bedroomImg from "../../../assets/bedroom-range.png";
+import diningImg from "@assets/dining-range.png";
+import livingImg from "@assets/living-range.png";
+import bedroomImg from "@assets/bedroom-range.png";
 import { Link } from "react-router-dom";
 
 export function BrowseRange() {

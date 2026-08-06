@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { useCartStore } from "../../store/useCartStore";
-import { FeaturesSection } from "../Shop/sections/FeaturesSection";
-import trashIcon from "../../assets/trashIcon.svg"; 
-import { Banner } from "../../components/PageBanner";
+import { useCartStore } from "@store/useCartStore";
+import { FeaturesSection } from "@pages/Shop/sections/FeaturesSection";
+import trashIcon from "@assets/trashIcon.svg"; 
+import { Banner } from "@components/PageBanner";
 import toast from "react-hot-toast";
-import { formatPrice } from "../../utils/formatPrice";
+import { formatPrice } from "@utils/formatPrice";
 
 
 const parsePrice = (priceStr: string) => {

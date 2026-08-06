@@ -1,12 +1,12 @@
-import setup1 from "../../../assets/forniture-1.png";
-import setup3 from "../../../assets/forniture-2.png";
-import setup2 from "../../../assets/forniture-3.png";
-import setup4 from "../../../assets/forniture-4.png";
-import setup5 from "../../../assets/forniture-5.png";
-import setup6 from "../../../assets/forniture-6.png";
-import setup8 from "../../../assets/forniture-7.png";
-import setup7 from "../../../assets/forniture-8.png";
-import setup9 from "../../../assets/forniture-9.png";
+import setup1 from "@assets/forniture-1.png";
+import setup3 from "@assets/forniture-2.png";
+import setup2 from "@assets/forniture-3.png";
+import setup4 from "@assets/forniture-4.png";
+import setup5 from "@assets/forniture-5.png";
+import setup6 from "@assets/forniture-6.png";
+import setup8 from "@assets/forniture-7.png";
+import setup7 from "@assets/forniture-8.png";
+import setup9 from "@assets/forniture-9.png";
 
 export function Forniture() {
   return (
