@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { getProduct } from "@api/products";
 import type { Product } from "@app-types/product";
+import { useCartStore } from "@store/useCartStore";
 
 import facebookIcon from "@assets/facebook.svg";
 import linkedinIcon from "@assets/linkedin.svg";
@@ -18,6 +19,8 @@ export function ProductDetailsSection() {
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [selectedColor, setSelectedColor] = useState<string>("");
   const [quantity, setQuantity] = useState<number>(1);
+
+  const addItem = useCartStore((state) => state.addItem);
 
   useEffect(() => {
     async function fetchProduct() {
@@ -45,6 +48,7 @@ export function ProductDetailsSection() {
 
   const handleAddToCart = () => {
     if (!product) return;
+    addItem(product, quantity);
 
     toast.success(`${quantity}x ${product.name} added to cart!`, {
       style: { background: "#2EC1AC", color: "#fff" },
