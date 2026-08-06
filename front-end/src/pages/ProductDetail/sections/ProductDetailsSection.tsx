@@ -9,6 +9,8 @@ import linkedinIcon from "@assets/linkedin.svg";
 import twitterIcon from "@assets/twitter.svg";
 import starIcon from "@assets/star.svg";
 
+import { useCartStore } from "../../../store/useCartStore";
+
 export function ProductDetailsSection() {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
@@ -43,9 +45,12 @@ export function ProductDetailsSection() {
     fetchProduct();
   }, [id]);
 
+  const addItem = useCartStore((state) => state.addItem);
+
   const handleAddToCart = () => {
     if (!product) return;
 
+    addItem(product, quantity);
     toast.success(`${quantity}x ${product.name} added to cart!`, {
       style: { background: "#2EC1AC", color: "#fff" },
       iconTheme: { primary: "#fff", secondary: "#2EC1AC" },

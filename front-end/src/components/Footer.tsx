@@ -103,9 +103,9 @@ export function Footer() {
               <Link to="/shop" className="hover:text-[#B88E2F] transition-colors">
                 Shop
               </Link>
-              <Link to="/about" className="hover:text-[#B88E2F] transition-colors">
+              <a href="#" onClick={(e) => e.preventDefault()} className="hover:text-[#B88E2F] transition-colors cursor-pointer">
                 About
-              </Link>
+              </a>
               <Link to="/contact" className="hover:text-[#B88E2F] transition-colors">
                 Contact
               </Link>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getProducts } from "@api/products";
 import { ProductCard } from "@components/ProductCard";
 import type { Product } from "@app-types/product";
@@ -7,19 +7,23 @@ import type { Product } from "@app-types/product";
 export function RelatedProductsSection() {
   const [products, setProducts] = useState<Product[]>([]);
   const navigate = useNavigate();
+  const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
     async function fetchRelatedProducts() {
       try {
-        const response = await getProducts({ limit: 4 });
-        setProducts(response.data);
+        const response = await getProducts({ limit: 5 });
+        const filtered = response.data
+          .filter((p) => String(p.id) !== id)
+          .slice(0, 4);
+        setProducts(filtered);
       } catch (error) {
         console.error("Erro ao carregar produtos relacionados:", error);
       }
     }
 
     fetchRelatedProducts();
-  }, []);
+  }, [id]);
 
   return (
     <section className="w-full pt-[55px] pb-[88px] bg-white font-poppins border-t border-[#D9D9D9]">

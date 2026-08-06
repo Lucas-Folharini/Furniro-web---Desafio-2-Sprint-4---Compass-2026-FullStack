@@ -11,6 +11,8 @@ export function ProductDetail() {
   const [productName, setProductName] = useState<string>("");
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     async function fetchProductName() {
       try {
         const targetId = id || "1";
@@ -19,7 +21,10 @@ export function ProductDetail() {
           setProductName(data.name);
         }
       } catch (error) {
-        console.error("Erro ao buscar nome do produto para o Breadcrumb:", error);
+        console.error(
+          "Erro ao buscar nome do produto para o Breadcrumb:",
+          error,
+        );
       }
     }
 
